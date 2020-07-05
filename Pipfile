@@ -9,6 +9,8 @@ verify_ssl = true
 requests = "*"
 flask = "*"
 gunicorn = "*"
+flask-pymongo = "*"
+dnspython = "*"
 
 [requires]
 python_version = "3.8"
