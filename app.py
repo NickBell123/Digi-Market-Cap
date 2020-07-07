@@ -23,8 +23,9 @@ mongo = PyMongo(app)
 @app.route('/coin_list')
 def coin_list():
   r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
-  results = r.text
-  return results
+  results = r.json()
+  data = results['data']
+  return render_template("coin_list.html", data=data)
   
 
 
