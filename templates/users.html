@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
-{block content}
-{% for user in users %}
-    {{user.name}}
-    {{user.assets}}
-    {{user.amount}}
-    {{user.price_paid}}
-    {{user.date_of_purchase}}
-{% endfor %}
-{% endblock %}
+{%block content%}
+<table>
+    <thead>
+        <tr>
+            <th>Ticker</th>
+            <th>Item Name</th>
+            <th>PAID Price</th>
+            <th>Purcahse Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <h4>{{user.name}}</h4>
+        <td>{{user.assets}}</td>
+        <td>{{user.amount}}</td>
+        <td>{{user.price_paid}}</td>
+        <td>{{user.date_of_purchase}}</td>        
+    </tbody>
+    {% endfor %}
+    {% endblock %}

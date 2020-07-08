@@ -1,6 +1,30 @@
 {% extends 'base.html' %}
     {% block content %}
-        {% for coin in data %}
-        {{coin.name}}
-        {% endfor %}
+        
+        <table>
+            <thead>
+              <tr>
+                  <th>Ticker</th>
+                  <th>Item Name</th>
+                  <th>Item Price</th>
+                  <th>24hr Change</th>
+              </tr>
+            </thead>
+            
+            <tbody>
+                {% for coin in data %}
+              <tr>
+                <td>{{coin.symbol}}</td>
+                <td>{{coin.name}}</td>
+                <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+                {% if  coin.quote['USD']['percent_change_24h'] > 0 %}
+                <td style="border: solid 1px;" class="center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
+                {% else %}
+                <td style="border: solid 1px;" class="center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
+                {% endif %}
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        
     {% endblock %}

@@ -15,16 +15,19 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-# @app.route('/get_users')
-# def get_users():
+@app.route('/get_users')
+def get_users():
     
-#     return render_template("users.html", users=mongo.db.users.find())
+  return render_template("users.html", users=mongo.db.users.find())
 
 @app.route('/coin_list')
 def coin_list():
-  r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=10&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+  r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=40&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
   results = r.json()
   data = results['data']
+  text = r.text
+  
+  # return text
   return render_template("coin_list.html", data=data)
   
 
