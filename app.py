@@ -15,8 +15,13 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 mongo = PyMongo(app)
 
 @app.route('/')
-@app.route('/get_users')
-def get_users():
+@app.route('/create_a_bag')
+def create_a_bag():
+  return render_template("create_a_bag.html")
+
+
+@app.route('/get_my_bagz')
+def get_my_bagz():
     
   return render_template("users.html", users=mongo.db.users.find())
 

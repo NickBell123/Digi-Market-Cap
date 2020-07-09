@@ -4,14 +4,15 @@
     <thead>
         <tr>
             <th>Ticker</th>
-            <th>Item Name</th>
+            <th>Amount</th>
             <th>PAID Price</th>
             <th>Purcahse Date</th>
         </tr>
     </thead>
     <tbody>
+      
         {% for user in users %}
-        <h4>{{user.name}}</h4>
+        
         <td>{{user.assets}}</td>
         <td>{{user.amount}}</td>
         <td>{{user.price_paid}}</td>
