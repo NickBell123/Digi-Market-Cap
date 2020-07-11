@@ -1,6 +1,6 @@
 import os
 import requests
-from flask import Flask, render_template, render_template, request, url_for
+from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -30,12 +30,16 @@ def get_my_bagz():
     
   return render_template("users.html", users=mongo.db.users.find())
 
+@app.route('/add_to_bagz', methods=["POST"])
+def add_to_bagz():
+  users=mongo.db.users
+  users.insert_one(request.form.to_dict())
+  return redirect(url_for('get_my_bagz'))
+
+
 @app.route('/coin_list')
-def coin_list():
+def coin_list(): 
   
-  text = r.text
-  
-  # return text
   return render_template("coin_list.html", data=data)
   
 
