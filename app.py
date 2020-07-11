@@ -28,7 +28,7 @@ def create_a_bag():
 @app.route('/get_my_bagz')
 def get_my_bagz():
     
-  return render_template("users.html", users=mongo.db.users.find())
+  return render_template("users.html", users=mongo.db.users.find(), data=data)
 
 @app.route('/add_to_bagz', methods=["POST"])
 def add_to_bagz():

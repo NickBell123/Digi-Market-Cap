@@ -6,17 +6,27 @@
             <th>Ticker</th>
             <th>Amount</th>
             <th>PAID Price</th>
+            <th>Value</th>
             <th>Purcahse Date</th>
+            <th>Current Price</th>
         </tr>
     </thead>
     <tbody>
       
         {% for user in users %}
-        
+        {% set value = user.amount|float * user.price_paid|float %}       
         <td>{{user.assets}}</td>
         <td>{{user.amount}}</td>
-        <td>{{user.price_paid}}</td>
-        <td>{{user.date_of_purchase}}</td>        
+        <td>{{"${:.2f}".format(user.price_paid|float)}}</td>
+        <td>{{"${:.2f}".format(value)}}</td>
+        <td>{{user.date_of_purchase}}</td>
+        {% for coin in data %}
+        {% if user.assets == coin.symbol %}
+        <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+        {% endif %}
+        {% endfor %}       
     </tbody>
     {% endfor %}
+    
+
     {% endblock %}
