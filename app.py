@@ -14,10 +14,15 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
+r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=40&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+results = r.json()
+data = results['data']
+
+
 @app.route('/')
 @app.route('/create_a_bag')
 def create_a_bag():
-  return render_template("create_a_bag.html")
+  return render_template("create_a_bag.html", data=data)
 
 
 @app.route('/get_my_bagz')
@@ -27,9 +32,7 @@ def get_my_bagz():
 
 @app.route('/coin_list')
 def coin_list():
-  r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=40&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
-  results = r.json()
-  data = results['data']
+  
   text = r.text
   
   # return text
