@@ -10,6 +10,7 @@
             <th>Purcahse Date</th>
             <th>Current Price</th>
             <th>percent diff</th>
+            <th>Current Value</th>
         </tr>
     </thead>
     <tbody>
@@ -19,16 +20,17 @@
         <td>{{user.assets}}</td>
         <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
         
-        <td>{{"${:.2f}".format(value)}}</td>
+        <td>{{"${:.4f}".format(value)}}</td>
         <td>{{user.date_of_purchase}}</td>
         {% for coin in data %}
         {% if user.assets == coin.symbol %}
         <td>{{"${:.4f}".format(coin.quote['USD']['price'])}}</td>
        
         {% set v1 = value %}
-        {% set v2 = coin.quote['USD']['price'] %}
-        {% set percent_diff = (v2 - v1) / 2 * 100 %}
+        {% set v2 = user.amount|float * coin.quote['USD']['price']|float %}
+        {% set percent_diff = (v2 - v1) / v1 * 100 %}
         <td>{{"{:.2f}%".format(percent_diff)}}</td>
+        <td>{{"${:.4f}".format(v2)}}</td>
         {% endif %}
         {% endfor %}       
     </tbody>
