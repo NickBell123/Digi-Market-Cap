@@ -39,10 +39,14 @@ def add_to_bagz():
 
 @app.route('/coin_list')
 def coin_list(): 
-  
   return render_template("coin_list.html", data=data)
   
 
+@app.route('/edit_bag/<bag_id>')
+def edit_bag(bag_id):
+  the_bag = mongo.db.users.find_one({"_id": ObjectId(bag_id)})
+  
+  return render_template('edit_bag.html', data=data, bag=the_bag)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 

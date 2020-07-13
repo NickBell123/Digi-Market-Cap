@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-<h3>Add a bag</h3>
+<h3>Edit bag</h3>
 {% block content %}
 <div class="row">
   <form action="{{url_for('add_to_bagz')}}" method="POST" class="col s12">
@@ -10,7 +10,10 @@
           <select id="assets" name="assets" type="text" class="validate">
             <option value="" disabled selected>Choose your option</option>
             {% for coin in data %}
-            <option value="{{coin.symbol}}">{{coin.symbol}}</option>
+            {% if coin.symbol == bag.assets %}
+            <option value="{{coin.symbol}}" selected >{{coin.symbol}}</option>
+            {% endif %}
+            <option value="{{bag.assets}}" >{{bag.assets}}</option>
             {% endfor %}
           </select>
           <label>Add a coin</label>
@@ -19,7 +22,7 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">info</i>
-          <input id="amount" name="amount" type="text" placeholder="Add amount" class="validate">
+          <input id="amount" name="amount" type="text" placeholder="{{bag.amount}}" class="validate">
         </div>
       </div>
       <div class="row">

@@ -1,40 +1,38 @@
 {% extends 'base.html' %}
 {%block content%}
-<table>
+<table class="responsive-table">
     <thead>
         <tr>
             <th>Ticker</th>
             <th>Amount</th>
-            
             <th>Value</th>
-            <th>Purcahse Date</th>
             <th>Current Price</th>
             <th>percent diff</th>
             <th>Current Value</th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
-    <tbody>
-      
         {% for user in users %}
-        {% set value = user.amount|float * user.price_paid|float %}       
+    <tbody class="z-depth-1">
+        {% set value = user.amount|float * user.price_paid|float %}
         <td>{{user.assets}}</td>
         <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
-        
         <td>{{"${:.4f}".format(value)}}</td>
-        <td>{{user.date_of_purchase}}</td>
         {% for coin in data %}
         {% if user.assets == coin.symbol %}
         <td>{{"${:.4f}".format(coin.quote['USD']['price'])}}</td>
-       
         {% set v1 = value %}
         {% set v2 = user.amount|float * coin.quote['USD']['price']|float %}
         {% set percent_diff = (v2 - v1) / v1 * 100 %}
         <td>{{"{:.2f}%".format(percent_diff)}}</td>
         <td>{{"${:.4f}".format(v2)}}</td>
         {% endif %}
-        {% endfor %}       
+        {% endfor %}
+        <td><a href="{{url_for('edit_bag', bag_id=user._id)}}" class="btn-floating waves-light btn-small blue"><i class="material-icons">edit</i></a></td>
+        <td><a class="btn-floating waves-light btn-small red"><i class="material-icons">delete</i></a></td>
     </tbody>
     {% endfor %}
-    
+</table>
 
-    {% endblock %}
+{% endblock %}
