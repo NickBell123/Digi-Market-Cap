@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{%block content%}
+<table>
+    <thead>
+        <tr>
+            <th>Ticker</th>
+            <th>Amount</th>
+            <th>Price paid</th>
+            <th>Purcahse Date</th>
+            <th>Current Price</th>
+            <th>percent diff</th>
+            <th>Current Value</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+    {% set value = user.amount|float * user.price_paid|float %}
+        <td>{{user.assets}}</td>
+        <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
+        <td>{{"${:.4f}".format(value)}}</td>
+        <td>{{user.date_of_purchase}}</td>
+         {% for coin in data %}
+         {% if user.assets == coin.symbol %}
+        <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+         {% set v1 = user.price_paid|float %}
+         {% set v2 = coin.quote['USD']['price']|float %}
+         {% set percent_diff = (v2 - v1) / v1 * 100 %}
+        <td>{{"{:.2f}%".format(percent_diff)}}</td>
+         {% set current_value = user.amount|float * coin.quote['USD']['price']|float %}
+        <td>{{ "${:.2f}".format(current_value)}}</td>
+         {% endif %}
+         {% endfor %}
+        <td><a class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a></td>
+        <td><a class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a></td>      
+    </tbody>
+    {% endfor %}
+    {% endblock %}

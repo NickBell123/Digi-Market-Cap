@@ -20,15 +20,16 @@ data = results['data']
 
 
 @app.route('/')
+@app.route('/coin_list')
+def coin_list(): 
+  
+  return render_template("coin_list.html", data=data)
+
+
 @app.route('/create_a_bag')
 def create_a_bag():
   return render_template("create_a_bag.html", data=data)
 
-
-@app.route('/get_my_bagz')
-def get_my_bagz():
-    
-  return render_template("users.html", users=mongo.db.users.find(), data=data)
 
 @app.route('/add_to_bagz', methods=["POST"])
 def add_to_bagz():
@@ -37,16 +38,16 @@ def add_to_bagz():
   return redirect(url_for('get_my_bagz'))
 
 
-@app.route('/coin_list')
-def coin_list(): 
-  return render_template("coin_list.html", data=data)
-  
+@app.route('/get_my_bagz')
+def get_my_bagz():
+    
+  return render_template("my_bagz.html", users=mongo.db.users.find(), data=data)
 
-@app.route('/edit_bag/<bag_id>')
-def edit_bag(bag_id):
-  the_bag = mongo.db.users.find_one({"_id": ObjectId(bag_id)})
-  
-  return render_template('edit_bag.html', data=data, bag=the_bag)
+
+@app.route('/edit_bag')
+def edit_bag():
+    
+  return render_template("my_bagz.html", users=mongo.db.users.find(), data=data)
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
