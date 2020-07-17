@@ -9,9 +9,20 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>Website</title>
 </head>
+<header>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="{{url_for('get_my_bagz')}}" class="">My Bagz App</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{{url_for('coin_list')}}">Coin List</a></li>
+                <li><a href="{{url_for('get_my_bagz')}}">My Bagz</a></li>
+                <li><a href="{{url_for('create_a_bag')}}">Add a bag</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
 
 <body>
-    <h1 class="center-align">My Bagz App</h1>
     <div class="container">
         {% block content %}
         {% endblock %}
