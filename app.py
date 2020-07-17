@@ -44,10 +44,25 @@ def get_my_bagz():
   return render_template("my_bagz.html", users=mongo.db.users.find(), data=data)
 
 
-@app.route('/edit_bag')
-def edit_bag():
+@app.route('/edit_bag/<bag_id>' )
+def edit_bag(bag_id):
+  the_bag = mongo.db.users.find_one({"_id": ObjectId(bag_id)})
     
-  return render_template("my_bagz.html", users=mongo.db.users.find(), data=data)
+  return render_template("edit_bag.html", bag=the_bag, data=data)
+
+
+@app.route('/update_bag/<bag_id>', methods=["POST"])
+def update_bag(bag_id):
+  bag = mongo.db.users
+  bag.update({'_id': ObjectId(bag_id)},
+  {
+    'assets': request.form.get('assets'),
+    'amount': request.form.get('amount'),
+    'price_paid': request.form.get('price_paid'),
+    'date_of_purchase': request.form.get('date_of_purchase')
+  })
+
+  return redirect(url_for('get_my_bagz'))
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
