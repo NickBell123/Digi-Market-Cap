@@ -61,8 +61,13 @@ def update_bag(bag_id):
     'price_paid': request.form.get('price_paid'),
     'date_of_purchase': request.form.get('date_of_purchase')
   })
-
   return redirect(url_for('get_my_bagz'))
+
+
+@app.route('/delete_bag/<bag_id>')
+def delete_bag(bag_id):
+  mongo.db.users.remove({'_id': ObjectId(bag_id)})
+  return redirect(url_for('get_my_bagz')) 
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 

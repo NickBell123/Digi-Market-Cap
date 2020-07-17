@@ -11,7 +11,11 @@
                     <select id="assets" name="assets" type="text" class="validate">
                         <label>Edit a coin</label>
                         {% for coin in data %}
-                        <option value="{{bag.assets}}">{{coin.symbol}}</option>
+                        {% if bag.assets == coin.symbol %}
+                        <option value="{{bag.assets}}" selected >{{coin.symbol}}</option>
+                        {% else %}
+                        <option value="{{bag.assets}}" >{{coin.symbol}}</option>
+                        {% endif %}
                         {% endfor %}
                     </select>
                 </div>
