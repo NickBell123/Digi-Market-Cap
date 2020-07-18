@@ -30,9 +30,9 @@
                 <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
                 {% endif %}
                 {% if  coin.quote['USD']['percent_change_24h'] > 0 %}
-                <td style="border: solid 1px;" class="center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
+                <td class="profit-box center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
                 {% else %}
-                <td style="border: solid 1px;" class="center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
+                <td class="profit-box center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
                 {% endif %}
                 <td>{{"{:,.0f}".format(coin.circulating_supply)}}</td>
                 <td>{{"${:,.0f}".format(coin.quote['USD']['volume_24h']) }}</td>

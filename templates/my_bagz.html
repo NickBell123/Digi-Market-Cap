@@ -25,11 +25,19 @@
             <td>{{user.date_of_purchase}}</td>
             {% for coin in data %}
             {% if user.assets == coin.symbol %}
+            {% if coin.quote['USD']['price'] > 1 %}
             <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+            {% else %}
+            <td>{{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
+            {% endif %}
             {% set v1 = user.price_paid|float %}
             {% set v2 = coin.quote['USD']['price']|float %}
             {% set percent_diff = (v2 - v1) / v1 * 100 %}
-            <td>{{"{:.2f}%".format(percent_diff)}}</td>
+            {% if percent_diff > 0 %}
+            <td class="profit-box algin-center green">{{"+{:,.2f}%".format(percent_diff)}}</td>
+            {% else %}
+            <td class="profit-box algin-center red">{{"{:,.2f}%".format(percent_diff)}}</td>
+            {% endif %}
             {% set current_value = user.amount|float * coin.quote['USD']['price']|float %}
             <td>{{ "${:.2f}".format(current_value)}}</td>
             {% endif %}
