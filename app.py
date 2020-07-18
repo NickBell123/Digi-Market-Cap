@@ -22,9 +22,8 @@ data = results['data']
 
 @app.route('/')
 @app.route('/coin_list')
-def coin_list(): 
- 
-  return render_template("coin_list.html", data=data)
+def coin_list():
+   return render_template("coin_list.html", data=data)
 
 
 @app.route('/create_a_bag')
