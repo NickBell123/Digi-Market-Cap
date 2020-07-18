@@ -4,25 +4,38 @@
         <table>
             <thead>
               <tr>
-                  <th>Ticker</th>
+                  <th>Rank</th>
                   <th>Item Name</th>
-                  <th>Item Price</th>
+                  <th>Ticker</th>
+                  <th>Market Cap</th>
+                  <th>Price</th>
                   <th>24hr Change</th>
+                  <th>Circulating Supply</th>
+                  <th> Volume (24h)</th>
+                  <!-- Market Cap	 Market Cap	Volume (24h)	Circulating Supply	Change (24h)	 -->
               </tr>
             </thead>
             
             <tbody>
-                {% for coin in data %}
-                
+                {% for coin in data %} 
               <tr>
-                <td>{{coin.symbol}}</td>
+                <td>{{loop.index}}</td>
+                
                 <td><strong>{{coin.name}}</strong></td>
+                <td>{{coin.symbol}}</td>
+                <td>{{"${:,.0f}".format(coin.quote['USD']['market_cap'])}}</td>
+                {% if coin.quote['USD']['price'] < 1 %}
+                <td>{{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
+                {% else %}
                 <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+                {% endif %}
                 {% if  coin.quote['USD']['percent_change_24h'] > 0 %}
                 <td style="border: solid 1px;" class="center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
                 {% else %}
                 <td style="border: solid 1px;" class="center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
                 {% endif %}
+                <td>{{"{:,.0f}".format(coin.circulating_supply)}}</td>
+                <td>{{"${:,.0f}".format(coin.quote['USD']['volume_24h']) }}</td>
               </tr>
               {% endfor %}
             </tbody>

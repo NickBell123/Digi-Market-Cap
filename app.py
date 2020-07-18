@@ -19,10 +19,11 @@ results = r.json()
 data = results['data']
 
 
+
 @app.route('/')
 @app.route('/coin_list')
 def coin_list(): 
-  
+ 
   return render_template("coin_list.html", data=data)
 
 
