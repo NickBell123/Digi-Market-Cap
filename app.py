@@ -22,6 +22,10 @@ global_data = results['data']
 print(global_data)
 
 @app.route('/')
+@app.route('/login')
+def login():
+  return render_template('login.html')
+
 @app.route('/coin_list')
 def coin_list():
    return render_template("coin_list.html", data=data, global_data=global_data)
