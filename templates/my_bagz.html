@@ -21,7 +21,7 @@
             {% set value = user.amount|float * user.price_paid|float %}
             <td>{{user.assets}}</td>
             <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
-            <td>{{"${:.4f}".format(value)}}</td>
+            <td>{{"${:.2f}".format(value)}}</td>
             <td>{{user.date_of_purchase}}</td>
             {% for coin in data %}
             {% if user.assets == coin.symbol %}

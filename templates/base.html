@@ -16,7 +16,7 @@
 <header>
     <nav>
         <div class="nav-wrapper">
-            <a href="{{url_for('get_my_bagz')}}" class="">My Bagz App</a>
+            <a href="{{url_for('get_my_bagz')}}" class="brand-logo">My Crypto Tracker App</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{url_for('coin_list')}}">Coin List</a></li>
                 <li><a href="{{url_for('get_my_bagz')}}">My Bagz</a></li>
@@ -27,6 +27,7 @@
 </header>
 
 <body>
+    
     <div class="container">
         {% block content %}
         {% endblock %}
@@ -35,7 +36,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
         </script>
-    <!-- Chartist.js CDN for pie chart -->
+    <!-- Chartist.js CDN for pie chart-->
     <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
     <!-- https://datatables.net/cdn for sorting coin list -->
     <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>

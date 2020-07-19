@@ -1,3 +1,8 @@
 .profit-box{
     border: solid 0.5px;
 } 
+
+.global_stats{
+    justify-content: space-around;
+    display: flex;
+}

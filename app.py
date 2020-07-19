@@ -8,22 +8,23 @@ if path.exists("env.py"):
   import env 
 
 app = Flask(__name__)
-
-
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=40&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=50&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
 results = r.json()
 data = results['data']
 
-
+r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+results = r.json()
+global_data = results['data']
+print(global_data)
 
 @app.route('/')
 @app.route('/coin_list')
 def coin_list():
-   return render_template("coin_list.html", data=data)
+   return render_template("coin_list.html", data=data, global_data=global_data)
 
 
 @app.route('/create_a_bag')
@@ -66,7 +67,7 @@ def update_bag(bag_id):
 
 @app.route('/delete_bag/<bag_id>')
 def delete_bag(bag_id):
-  mongo.db.users.remove({'_id': ObjectId(bag_id)})
+  mongo.db.users.delete_one({'_id': ObjectId(bag_id)})
   return redirect(url_for('get_my_bagz')) 
 
 if __name__ == '__main__':
