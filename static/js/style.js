@@ -14,39 +14,23 @@ $(document).ready(function () {
             "orderable": false
         }]       
     });
-
-    let myAsset = []
-
-    chartAsset = $('.current_asset')
-    for(coin of chartAsset){
-        myAsset.push(coin.textContent)
-    }
-    console.log(chartAsset)
     
-    let myData = []
+    myValues = []
 
-    chartData = $('.current_value')
-    for (value of chartData){
-        v = value.textContent
-        vnum = v.slice(1)
-        num = parseFloat(vnum)
-        myData.push(num)
-        console.log(typeof(num))
-    }
-
-    console.log(myData)
-
+    myVal = $('.current_value')
+    for (vals of myVal)
+        myValues.push(parseFloat(vals.textContent.slice(1)))
+    
+    
     var data = {
-        // labels: myAsset,
-        series: myData
+        series: myValues
       };
       
       var sum = function(a, b) { return a + b };
       
       new Chartist.Pie('.ct-chart', data, {
-        labelInterpolationFnc: function(value, idx) {
-          let percentage = Math.round(value / data.series.reduce(sum) * 100) + '%';
-          return myAsset[idx] + ' ' + percentage;
+        labelInterpolationFnc: function(value) {
+          return Math.round(value / data.series.reduce(sum) * 100) + '%';
         }
       });
     

@@ -19,7 +19,7 @@
         {% for user in users %}
         <tr>
             {% set value = user.amount|float * user.price_paid|float %}
-            <td class="current_asset">{{user.assets}}</td>
+            <td>{{user.assets}}</td>
             <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
             <td>{{"${:.4f}".format(value)}}</td>
             <td>{{user.date_of_purchase}}</td>
