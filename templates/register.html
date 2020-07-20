@@ -3,12 +3,12 @@
 <div class="row">
     <div class="container">
         <div class="row">
-            <form class="login-form col s12">
-                <h3>Welcome! Please login.</h3>
+            <form method="POST" action="{{url_for('register')}}" class="login-form col s12">
+                <h3>Welcome! Please create an account.</h3>
                 <div class="row">
                     <div class="input-field col s12">
-                        <input placeholder="Username" name="username" id="first_name" type="text" class="validate">
-                        <label for="first_name">Username</label>
+                        <input placeholder="Username" name="username" type="text" class="validate">
+                        <label for="username">Username</label>
                     </div>
                 </div>
                 <div class="row">
@@ -20,12 +20,11 @@
                 <button class="btn-floating waves-effect waves-light" type="submit">
                     <i class="material-icons">send</i>
                 </button>
-                <div class="container signin">
-                    <p class="center-align">Don't have an account? <a href="{{url_for('register')}}">Create Account</a>.</p>
+                <div class="container">
+                    <p class="center-align">Already have an account? <a href="{{url_for('login')}}">Sign in</a>.</p>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 {% endblock %}

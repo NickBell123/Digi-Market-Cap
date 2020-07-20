@@ -1,6 +1,7 @@
+import bcrypt
 import os
 import requests
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from os import path
@@ -19,12 +20,28 @@ data = results['data']
 r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
 results = r.json()
 global_data = results['data']
-print(global_data)
+
 
 @app.route('/')
 @app.route('/login')
 def login():
-  return render_template('login.html')
+  if 'username' in session:
+    return 'You are logged in as '+ session['username']
+  return render_template("login.html")
+
+@app.route('/register', methods=["GET", "POST"])
+def register():
+  if request.method == "POST":
+    user = mongo.db.user
+    exsisting_user = user.find_one({'name': request.form['username']})
+    # if no matching username found
+    if exsisting_user is None:
+      hashpassword = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
+      user.insert({'name': request.form['username'], 'password': hashpassword})
+      session['username'] = request.form['username']
+      return redirect(url_for('login'))
+    return 'SORRY! That username is taken'
+  return render_template("register.html")
 
 @app.route('/coin_list')
 def coin_list():
@@ -75,6 +92,7 @@ def delete_bag(bag_id):
   return redirect(url_for('get_my_bagz')) 
 
 if __name__ == '__main__':
+    app.secret_key = 'mysecret'
     app.run(host=os.environ.get('IP'), 
         port=(os.environ.get('PORT')),
         debug=True)
