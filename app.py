@@ -23,11 +23,24 @@ global_data = results['data']
 
 
 @app.route('/')
-@app.route('/login')
-def login():
+def index():
   if 'username' in session:
     return 'You are logged in as '+ session['username']
-  return render_template("login.html")
+ 
+  return render_template("index.html")
+
+
+@app.route('/login', methods=["POST"])
+def login():
+  user = mongo.db.user
+  login_user = user.find_one({'name': request.form['username']})
+
+  if login_user:
+    if bcrypt.checkpw(request.form['password'].encode('utf-8'), login_user['password']) == True:
+      session['username'] = request.form['username']
+      return 'You are logged in as '+ session['username']
+    
+  return'Inavaild username or password'    
 
 @app.route('/register', methods=["GET", "POST"])
 def register():
