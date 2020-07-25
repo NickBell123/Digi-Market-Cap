@@ -16,11 +16,11 @@
 <header>
     <nav>
         <div class="nav-wrapper">
-            <a href="{{url_for('get_my_bagz')}}" class="brand-logo">My Crypto Tracker App</a>
+            <a href="{{url_for('get_my_bagz', username = session['username'])}}" class="brand-logo">My Crypto Tracker App</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{url_for('coin_list')}}">Coin List</a></li>
-                <li><a href="{{url_for('get_my_bagz')}}">My Bagz</a></li>
-                <li><a href="{{url_for('create_a_bag')}}">Add a bag</a></li>
+                <li><a href="{{url_for('coin_list', username = session['username'])}}">Coin List</a></li>
+                <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Bagz</a></li>
+                <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a bag</a></li>
             </ul>
         </div>
     </nav>

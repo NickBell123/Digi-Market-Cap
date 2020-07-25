@@ -16,21 +16,21 @@
     </thead>
     <tbody>
 
-        {% for user in users %}
+        {% for pos in positions %}
         <tr>
-            {% set value = user.amount|float * user.price_paid|float %}
-            <td>{{user.assets}}</td>
-            <td>{{user.amount}} x {{"${:.2f}".format(user.price_paid|float)}}</td>
+            {% set value = pos.amount|float * pos.price_paid|float %}
+            <td>{{pos.asset}}</td>
+            <td>{{pos.amount}} x {{"${:.2f}".format(pos.price_paid|float)}}</td>
             <td>{{"${:.2f}".format(value)}}</td>
-            <td>{{user.date_of_purchase}}</td>
+            <td>{{pos.date_of_purchase}}</td>
             {% for coin in data %}
-            {% if user.assets == coin.symbol %}
+            {% if pos.asset == coin.symbol %}
             {% if coin.quote['USD']['price'] > 1 %}
             <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
             {% else %}
             <td>{{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
             {% endif %}
-            {% set v1 = user.price_paid|float %}
+            {% set v1 = pos.price_paid|float %}
             {% set v2 = coin.quote['USD']['price']|float %}
             {% set percent_diff = (v2 - v1) / v1 * 100 %}
             {% if percent_diff > 0 %}
@@ -38,17 +38,21 @@
             {% else %}
             <td class="profit-box algin-center red">{{"{:,.2f}%".format(percent_diff)}}</td>
             {% endif %}
-            {% set current_value = user.amount|float * coin.quote['USD']['price']|float %}
+            {% set current_value = pos.amount|float * coin.quote['USD']['price']|float %}
             <td class="current_value">{{ "${:.2f}".format(current_value)}}</td>
             {% endif %}
             {% endfor %}
-            <td><a href="{{url_for('edit_bag', bag_id=user._id)}}"
+            <td><a href="{{url_for('edit_bag', bag_id=pos._id)}}"
                     class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
             </td>
-            <td><a href="{{url_for('delete_bag', bag_id=user._id)}}"
+            <td><a href="{{url_for('delete_bag', bag_id=pos._id)}}"
                     class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
             </td>
         </tr>
+        {% endfor %}
+
+        {% for pos in positions %}
+        {{pos._id}}
         {% endfor %}
     </tbody>
 </table>
