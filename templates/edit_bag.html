@@ -8,13 +8,13 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">control_point</i>
-                    <select id="assets" name="assets" type="text" class="validate">
+                    <select id="assets" name="asset" type="text" class="validate">
                         <label>Edit a coin</label>
                         {% for coin in data %}
-                        {% if bag.assets == coin.symbol %}
-                        <option value="{{bag.assets}}" selected >{{coin.symbol}}</option>
+                        {% if bag.asset == coin.symbol %}
+                        <option value="{{bag.asset}}" selected >{{coin.symbol}}</option>
                         {% else %}
-                        <option value="{{bag.assets}}" >{{coin.symbol}}</option>
+                        <option value="{{bag.asset}}" >{{coin.symbol}}</option>
                         {% endif %}
                         {% endfor %}
                     </select>

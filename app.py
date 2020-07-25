@@ -25,11 +25,8 @@ global_data = results['data']
 @app.route('/')
 def index():
   if 'username' in session:
-    
-    
-    
     return redirect(url_for('coin_list', username = session['username']))
- 
+
   return render_template("index.html")
 
 # check login values
@@ -89,11 +86,17 @@ def get_my_bagz(username):
   return render_template('my_bagz.html', positions=user['positions'], data=data, username = session['username'])
 
 #update users puchases/holdings
-@app.route('/edit_bag/<bag_id>')
-def edit_bag(bag_id):
-  the_bag = mongo.db.users.find_one({"_id": ObjectId(bag_id)})
-    
-  return render_template("edit_bag.html", bag=the_bag, data=data)
+@app.route('/edit_bag/<username>/<bag_id>')
+def edit_bag(username, bag_id):
+  user = mongo.db.user.find_one({'name': session['username']})
+  positions = user['positions']
+  for bag in positions:
+    if bag['_id'] == ObjectId(bag_id):
+      the_bag = bag
+    print(bag['_id'])  
+
+  # the_bag = mongo.db.user.find({"positions":{"_id": ObjectId(bag_id)}})
+  return render_template("edit_bag.html", bag=the_bag, data=data, username = session['username'])
 
 #update users puchases/holdings
 @app.route('/update_bag/<bag_id>', methods=["POST"])
