@@ -3,6 +3,7 @@
 {% block content %}
 <div class="row">
   <form action="{{url_for('add_to_bagz', username = session['username'])}}" method="POST" class="col s12">
+    <input id="amount" name="_id" type="hidden" value="{{_id}}" class="validate">
     <div class="row">
       <div class="row">
         <div class="input-field col s12">

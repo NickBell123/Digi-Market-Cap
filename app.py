@@ -68,7 +68,8 @@ def coin_list(username):
 #Create a purchase or holding of crypto
 @app.route('/create_a_bag')
 def create_a_bag():
-  return render_template("create_a_bag.html", data=data)
+  _id = ObjectId()
+  return render_template("create_a_bag.html", data=data, _id=_id)
 
 #Add the purchase/holding to my bags function
 @app.route('/add_to_bagz/<username>', methods=["POST"])
@@ -89,14 +90,12 @@ def get_my_bagz(username):
 @app.route('/edit_bag/<username>/<bag_id>')
 def edit_bag(username, bag_id):
   user = mongo.db.user.find_one({'name': session['username']})
-  positions = user['positions']
-  for bag in positions:
-    if bag['_id'] == ObjectId(bag_id):
-      the_bag = bag
-    print(bag['_id'])  
-
+  positions=user['positions']
+  for pos in positions:
+    if pos['_id'] == bag_id:
+      bag = pos
   # the_bag = mongo.db.user.find({"positions":{"_id": ObjectId(bag_id)}})
-  return render_template("edit_bag.html", bag=the_bag, data=data, username = session['username'])
+  return render_template("edit_bag.html", data=data, username = session['username'], bag_id=bag_id, bag=bag)
 
 #update users puchases/holdings
 @app.route('/update_bag/<bag_id>', methods=["POST"])
