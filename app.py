@@ -66,13 +66,9 @@ def coin_list(username):
   return render_template("coin_list.html", data=data, global_data=global_data)
 
 #Create a purchase or holding of crypto
-@app.route('/create_a_bag/<username>')
-def create_a_bag(username):
-  user = mongo.db.user.find_one({'name': session['username']})
-  _id = ObjectId()
-  return render_template('create_a_bag.html', positions=user['positions'], username = session['username'], data=data, _id=_id)
-
-  
+@app.route('/create_a_bag')
+def create_a_bag():
+  return render_template("create_a_bag.html", data=data)
 
 #Add the purchase/holding to my bags function
 @app.route('/add_to_bagz/<username>', methods=["POST"])
