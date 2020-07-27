@@ -112,10 +112,12 @@ def update_bag(username, bag_id):
   return redirect(url_for('get_my_bagz', username = session['username']))
 
 #delete users puchases/holdings
-@app.route('/delete_bag/<bag_id>')
-def delete_bag(bag_id):
-  mongo.db.users.delete_one({'_id': ObjectId(bag_id)})
-  return redirect(url_for('get_my_bagz')) 
+@app.route('/delete_bag/<username>/<bag_id>')
+def delete_bag(username, bag_id):
+  user = mongo.db.users.update({'name': session['username']},
+  {'$pull':{'positions':{'_id': bag_id}}})
+  print(user)
+  return redirect(url_for('get_my_bagz', username = session['username'])) 
 
 if __name__ == '__main__':
     app.secret_key = 'mysecret'
