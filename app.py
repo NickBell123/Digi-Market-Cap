@@ -13,11 +13,11 @@ app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 # Api call for individual cryptos
-r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=50&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=50&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
 data = results['data']
 # Api call for global crypto stats
-r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=7d99530e-32dc-4fff-96ee-4b3811b660de')
+r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
 global_data = results['data']
 
@@ -114,13 +114,13 @@ def update_bag(username, bag_id):
 #delete users puchases/holdings
 @app.route('/delete_bag/<username>/<bag_id>')
 def delete_bag(username, bag_id):
-  user = mongo.db.users.update({'name': session['username']},
-  {'$pull':{'positions':{'_id': bag_id}}})
+  user = mongo.db.user.update_one({'name': session['username']},
+  {'$pull': {'positions': {'_id': bag_id}}})
   print(user)
   return redirect(url_for('get_my_bagz', username = session['username'])) 
 
 if __name__ == '__main__':
-    app.secret_key = 'mysecret'
+    app.secret_key = os.environ.get('MYSECRETKEY')
     app.run(host=os.environ.get('IP'), 
         port=(os.environ.get('PORT')),
         debug=True)
