@@ -98,18 +98,18 @@ def edit_bag(username, bag_id):
   return render_template("edit_bag.html", data=data, username = session['username'], bag_id=bag_id, bag=bag)
 
 #update users puchases/holdings
-@app.route('/update_bag/<bag_id>', methods=["POST"])
-def update_bag(bag_id):
-  bag = mongo.db.users
-  
-  bag.update({'_id': ObjectId(bag_id)},
+@app.route('/update_bag/<username>/<bag_id>', methods=["POST"])
+def update_bag(username, bag_id):
+  user = mongo.db.user.update_many({'name': session['username'], 'positions._id': bag_id }, 
+  {'$set':
   {
-    'assets': request.form.get('assets'),
-    'amount': request.form.get('amount'),
-    'price_paid': request.form.get('price_paid'),
-    'date_of_purchase': request.form.get('date_of_purchase')
-  })
-  return redirect(url_for('get_my_bagz'))
+    'positions.$.asset': request.form.get('asset'),
+    'positions.$.amount': request.form.get('amount'), 
+    'positions.$.price_paid': request.form.get('price_paid'),
+    'positions.$.date_of_purchase': request.form.get('date_of_purchase')
+  }})
+  
+  return redirect(url_for('get_my_bagz', username = session['username']))
 
 #delete users puchases/holdings
 @app.route('/delete_bag/<bag_id>')
