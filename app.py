@@ -42,7 +42,7 @@ def login():
     
   return'Inavaild username or password'    
 
-"""Reg page Check for available username. All usernames are unique"""
+"""Register page Check for available username. All usernames are unique"""
 @app.route('/register', methods=["GET", "POST"])
 def register():
   if request.method == "POST":
