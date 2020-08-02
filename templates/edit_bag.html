@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h3>Edit Bag</h3>
+<h3>Holding for {{bag.asset}}</h3>
 <div class="row">
     <form action="{{url_for('update_bag', username = session['username'], bag_id=bag_id)}}" method="POST" class="col s12">
         <div class="row">

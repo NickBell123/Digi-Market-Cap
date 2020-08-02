@@ -10,14 +10,14 @@ $(document).ready(function () {
         "paging":   false, 
         "searching": false,
         "columnDefs": [{
-            "targets":[7,8],
+            "targets":[7,8,9],
             "orderable": false
         }]       
     });
     
     myValues = []
 
-    myVal = $('.current_value')
+    myVal = $('.pieChart_value')
     for (vals of myVal)
         myValues.push(parseFloat(vals.textContent.slice(1)))
     

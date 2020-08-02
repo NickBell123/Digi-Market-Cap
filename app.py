@@ -40,7 +40,20 @@ def login():
       user = mongo.db.user.find_one({'name': session['username']})
       return redirect(url_for('index', user=user))
     
-  return'Inavaild username or password'    
+  return'Inavaild username or password'
+
+
+@app.route('/logout/<username>')
+def logout(username):
+  user = mongo.db.user
+  login_user = user.find_one({'name': session['username']})
+
+  if login_user:
+    session.clear()
+    return redirect(url_for('index'))
+  return 'Error! No user logged in'
+
+
 
 """Register page Check for available username. All usernames are unique"""
 @app.route('/register', methods=["GET", "POST"])
@@ -64,10 +77,10 @@ def coin_list(username):
   return render_template("coin_list.html", data=data, global_data=global_data)
 
 """create a holding of crypto"""
-@app.route('/create_a_bag')
-def create_a_bag():
+@app.route('/create_a_bag/<username>')
+def create_a_bag(username):
   _id = ObjectId()
-  return render_template("create_a_bag.html", data=data, _id=_id)
+  return render_template("create_a_bag.html", data=data, _id=_id, username = session['username'])
 
 """push holding to db"""
 @app.route('/add_to_bagz/<username>', methods=["POST"])
@@ -83,6 +96,29 @@ def get_my_bagz(username):
   user = mongo.db.user.find_one({'name': session['username']})
  
   return render_template('my_bagz.html', positions=user['positions'], data=data, username = session['username'])
+
+"""Add to an exsisting asset instead of creating multiples of 1 asset"""
+@app.route('/add_to_bag/<username>/<bag_id>')
+def add_to_bag(username, bag_id):
+  user = mongo.db.user.find_one({'name': session['username']})
+  positions=user['positions']
+  for pos in positions:
+    if pos['_id'] == bag_id:
+      bag = pos
+  return render_template("add_to_bag.html", data=data, username = session['username'], bag_id=bag_id, bag=bag)
+
+
+@app.route('/adding_to_bag/<username>/<bag_id>')
+def adding_to_bag(username, bag_id):
+  user = mongo.db.user.update_many({'name': session['username'], 'positions._id': bag_id }, 
+  {'$set':
+  {
+    'positions.$.amount': request.form.get('amount'), 
+  }})
+  
+  return redirect(url_for('get_my_bagz', username = session['username']))
+
+
 
 """update users puchases/holdings"""
 @app.route('/edit_bag/<username>/<bag_id>')
