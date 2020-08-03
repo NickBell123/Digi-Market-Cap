@@ -20,19 +20,19 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">info</i>
-          <input id="amount" name="amount" type="text" placeholder="Add amount" class="validate">
+          <input id="amount" name="amount" type="number" min="0" step="0.001" placeholder="Add amount" class="validate">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">payment</i>
-          <input id="price_paid" name="price_paid" type="text" placeholder="Payment" class="validate">
+          <input id="price_paid" name="price_paid"  type="number" min="0" step="0.001" placeholder="Payment" class="validate">
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">date_range</i>
-          <input id="date_of_purchase" name="date_of_purchase" type="text" placeholder="date of purchase"
+          <input id="date_of_purchase" name="date_of_purchase" type="date" placeholder="date of purchase"
             class="datepicker">
         </div>
       </div>

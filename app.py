@@ -42,15 +42,16 @@ def login():
     
   return'Inavaild username or password'
 
-
-@app.route('/logout/<username>')
-def logout(username):
-  user = mongo.db.user
-  login_user = user.find_one({'name': session['username']})
-
-  if login_user:
-    session.clear()
-    return redirect(url_for('index'))
+"""logout route"""
+@app.route('/logout')
+def logout():
+  if 'username' in session:
+    user = mongo.db.user
+    login_user = user.find_one({'name': session['username']})
+    
+    if login_user:
+      session.clear()
+      return redirect(url_for('index'))
   return 'Error! No user logged in'
 
 
@@ -113,7 +114,7 @@ def adding_to_bag(username, bag_id):
   user = mongo.db.user.update_many({'name': session['username'], 'positions._id': bag_id }, 
   {'$set':
   {
-    'positions.$.amount': request.form.get('amount'), 
+    'positions.$.amount': request.form.get('amount')
   }})
   
   return redirect(url_for('get_my_bagz', username = session['username']))

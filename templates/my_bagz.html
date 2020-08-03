@@ -27,7 +27,6 @@
             {% set v2 = coin.quote['USD']['price']|float %}
             {% set percent_diff = (v2 - v1) / v1 * 100 %}
             {% set current_value = pos.amount|float * coin.quote['USD']['price']|float %}
-
             {% if coin.quote['USD']['price'] > 1 %}
             <td>{{pos.amount}} x {{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
             {% else %}
