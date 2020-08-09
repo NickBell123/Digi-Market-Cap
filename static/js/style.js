@@ -17,23 +17,31 @@ $(document).ready(function () {
         }]       
     });
     
-    myValues = []
-
+    let myValues = []
+    
     myVal = $('.pieChart_value')
     for (vals of myVal)
         myValues.push(parseFloat(vals.textContent.slice(1)))
+
+
+    let myLabels = []
     
-    
+    myLab = $('.assetName')
+    for (lab of myLab)
+        myLabels.push(lab.textContent)
+
+    console.log(myLabels)
     var data = {
-        series: myValues
-      };
+        series: myValues 
+      }
       
       var sum = function(a, b) { return a + b };
       
       new Chartist.Pie('.ct-chart', data, {
-        labelInterpolationFnc: function(value) {
-          return Math.round(value / data.series.reduce(sum) * 100) + '%';
-        }
+        labelInterpolationFnc: function(value, idx) {
+          let percentage = Math.round(value / data.series.reduce(sum) * 100) + '%';
+          return myLabels[idx] +' '+ percentage;
+        }, 
       });
     
 });

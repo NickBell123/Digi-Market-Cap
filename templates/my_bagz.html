@@ -21,7 +21,7 @@
             {% set value = pos.amount|float * pos.price_paid|float %}
             {% for coin in data %}
             {% if pos.asset == coin.symbol %}
-            <td>{{pos.asset}}</td>
+            <td class="assetName">{{pos.asset}}</td>
             {% set v1 = pos.price_paid|float %}
             {% set v2 = coin.quote['USD']['price']|float %}
             {% set percent_diff = (v2 - v1) / v1 * 100 %}
@@ -59,6 +59,9 @@
 </table>
 <div class="container">
     <div class="ct-chart ct-perfect-fourth"></div>
+</div>
+<div class="container">
+    <div id='chartist_m3'></div>
 </div>
 
 {% endblock %}

@@ -8,7 +8,7 @@ from os import path
 if path.exists("env.py"):
   import env 
 
-app.secret_key = os.environ.get('MYSECRETKEY')
+
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
@@ -177,7 +177,7 @@ def delete_bag(username, bag_id):
   return redirect(url_for('get_my_bagz', username = session['username'])) 
 
 if __name__ == '__main__':
-    
+    app.secret_key = os.environ.get('MYSECRETKEY')
     app.run(host=os.environ.get('IP'), 
         port=(os.environ.get('PORT')),
         debug=True)
