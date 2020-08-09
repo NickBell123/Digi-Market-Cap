@@ -3,12 +3,12 @@
 {% block content %}
 <h3>Holding for {{bag.asset}}</h3>
 <div class="row">
-    <form action="{{url_for('update_bag', username = session['username'], bag_id=bag_id)}}" method="POST" class="col s12">
+    <form action="{{url_for('adding_to_bag', username = session['username'], bag_id=bag_id, bag=bag)}}" method="POST" class="col s12">
         <div class="row">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">control_point</i>
-                    <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate">
+                    <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate" disabled>
                         <label>Edit a coin</label>
                         {% for coin in data %}
                         {% if bag.asset == coin.symbol %}
@@ -31,7 +31,7 @@
                 <div class="input-field col s12">
                     <i class="material-icons prefix">payment</i>
                     <input id="price_paid" name="price_paid" type="text" value="{{bag.price_paid}}" class="validate">
-                    <label>Optional</label>
+                    <label>Unavailable for now</label>
                 </div>
             </div>
             <div class="row">

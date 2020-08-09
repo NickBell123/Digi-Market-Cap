@@ -16,3 +16,7 @@
     align-items: center;
 }
 
+.isFavorite{
+    color: chartreuse;
+}
+

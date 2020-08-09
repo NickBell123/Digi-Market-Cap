@@ -3,11 +3,13 @@ $(document).ready(function () {
     $('select').formSelect();
    
     $('#myCoinTable').DataTable({
-        "paging":   false,        
+        "dom":"ftip",
+        "paging": true,
+        "pageLength": 50           
     });
 
     $('#mybagTable').DataTable({
-        "paging":   false, 
+        "paging": false, 
         "searching": false,
         "columnDefs": [{
             "targets":[7,8,9],
@@ -35,3 +37,4 @@ $(document).ready(function () {
       });
     
 });
+

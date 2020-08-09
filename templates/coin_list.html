@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-  <h3 class="center-align">Top 50 Cryptos</h3>
+  <h3 class="center-align">Top 200 Cryptos</h3>
   <div class="global_stats">
     <span>Current Market Cap:  {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
     <span>Bitcion Dominance: {{"{:.2f}%".format(global_data['btc_dominance'])}}</span>
-    <span>Cryptocurrencies:  {{global_data['total_cryptocurrencies']}}</span>
   </div>
 </div>
 
@@ -20,7 +19,6 @@
       <th>24hr Change</th>
       <th>Circulating Supply</th>
       <th>Volume (24h)</th>
-      <th>Favorite</th>
       <!-- Market Cap	 Market Cap	Volume (24h)	Circulating Supply	Change (24h)	 -->
     </tr>
   </thead>
@@ -45,12 +43,6 @@
       {% endif %}
       <td>{{"{:,.0f}".format(coin.circulating_supply)}}</td>
       <td>{{"${:,.0f}".format(coin.quote['USD']['volume_24h']) }}</td>
-      <td><div class="center-align">
-        <span class="material-icons favorite">
-        star_border
-        </span>
-      </div>
-      </td>
     </tr>
     {% endfor %}
   </tbody>
