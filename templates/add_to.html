@@ -23,15 +23,15 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">info</i>
-                    <input id="amount" name="amount" type="text" value="{{bag.amount}}" class="validate">
-                    <label>Add or reduce amount of asset</label>
+                    <input id="amount" name="amount" type="number" placeholder="{{bag.amount}}" class="validate" required>
+                    <label>Add new amoumt to {{bag.asset}}</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <i class="material-icons prefix">payment</i>
-                    <input id="price_paid" name="price_paid" type="text" value="{{bag.price_paid}}" class="validate">
-                    <label>Unavailable for now</label>
+                    <i class="material-icons prefix">monetization_on</i>
+                    <input type="number" id="price_paid" name="price_paid" placeholder="{{bag.price_paid}}" class="validate" required>
+                    <label>Price per unit at purchase</label>
                 </div>
             </div>
             <div class="row">

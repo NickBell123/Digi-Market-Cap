@@ -30,7 +30,6 @@ $(document).ready(function () {
     for (lab of myLab)
         myLabels.push(lab.textContent)
 
-    console.log(myLabels)
     var data = {
         series: myValues 
       }
@@ -43,6 +42,5 @@ $(document).ready(function () {
           return myLabels[idx] +' '+ percentage;
         }, 
       });
-    
 });
 

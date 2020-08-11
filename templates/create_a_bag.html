@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h3>Create a holding of a crypto</h3>
 <div class="row">
   <form action="{{url_for('add_to_bagz', username = session['username'])}}" method="POST" class="col s12">
     <input id="_id" name="_id" type="hidden" value="{{_id}}" class="validate">
@@ -20,13 +21,13 @@
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">info</i>
-          <input id="amount" name="amount" type="number" min="0" step="0.001" placeholder="Amount of coins/units" class="validate">
+          <input id="amount" name="amount" type="number" min="0" step="0.001" placeholder="Amount of coins/units" class="validate" required>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
           <i class="material-icons prefix">monetization_on</i>
-          <input id="price_paid" name="price_paid"  type="number" min="0" step="0.0001" placeholder="Price per coin/unit in USD" class="validate">
+          <input id="price_paid" name="price_paid"  type="number" min="0" step="0.0001" placeholder="Price per coin/unit in USD" class="validate" required>
         </div>
       </div>
       <div class="row">
