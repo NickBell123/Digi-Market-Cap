@@ -77,6 +77,7 @@ def coin_list(username):
   
   return render_template("coin_list.html", data=data, global_data=global_data)
 
+
 """create a holding of crypto"""
 @app.route('/create_a_bag/<username>')
 def create_a_bag(username):

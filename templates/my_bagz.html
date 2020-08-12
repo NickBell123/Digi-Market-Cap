@@ -2,7 +2,7 @@
 {%block content%}
 <table id="mybagTable" class="">
     <thead>
-        <tr>
+        <tr class="table_row">
             <th>Ticker</th>
             <th>Positions</th>
             <th>Current Value</th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
         {% for pos in positions %}
-        <tr>
+        <tr class="table_row">
             {% set value = pos.amount|float * pos.price_paid|float %}
             {% for coin in data %}
             {% if pos.asset == coin.symbol %}
@@ -34,9 +34,9 @@
             <td class="pieChart_value">{{ "${:.2f}".format(current_value)}}</td>
             <td>{{"${:.3f}".format(pos.price_paid|float)}}</td>
             {% if percent_diff > 0 %}
-            <td class="profit-box algin-center green">{{"+{:,.2f}%".format(percent_diff)}}</td>
+            <td class="profit-box green">{{"+{:,.2f}%".format(percent_diff)}}</td>
             {% else %}
-            <td class="profit-box algin-center red">{{"{:,.2f}%".format(percent_diff)}}</td>
+            <td class="profit-box red">{{"{:,.2f}%".format(percent_diff)}}</td>
             {% endif %}
             <td>{{"${:.2f}".format(value)}}</td>
             <td>{{pos.date_of_purchase}}</td>

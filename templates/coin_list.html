@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="container">
-  <h3 class="center-align">Top 200 Cryptos</h3>
+  <h3 class="center-align">Top 200 Cryptos By Market Capitalization</h3>
   <div class="global_stats">
-    <span>Current Market Cap:  {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
+    <span>Current Market Cap: {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
     <span>Bitcion Dominance: {{"{:.2f}%".format(global_data['btc_dominance'])}}</span>
   </div>
 </div>
@@ -26,10 +26,9 @@
   <tbody>
     {% for coin in data %}
     <tr>
-      <td>{{loop.index}}</td>
-
+      <td class="center-align">{{loop.index}}</td>
       <td><strong>{{coin.name}}</strong></td>
-      <td>{{coin.symbol}}</td>
+      <td class="center-align">{{coin.symbol}}</td>
       <td>{{"${:,.0f}".format(coin.quote['USD']['market_cap'])}}</td>
       {% if coin.quote['USD']['price'] < 1 %}
       <td>{{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
