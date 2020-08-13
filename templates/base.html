@@ -14,11 +14,12 @@
     <title>Website</title>
 </head>
 <header>
-    <nav>
+    <nav class="sidenav-trigger">
         <div class="nav-wrapper">
 
-            <a href="{{url_for('get_my_bagz', username = session['username'])}}" class="brand-logo">Digi Market
-                Cap</a>
+            <a href="{{url_for('coin_list', username = session['username'])}}" class="brand-logo"> <strong>Digi Market
+                    Cap</strong></a>
+            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{url_for('coin_list', username = session['username'])}}">Coin List</a></li>
@@ -28,6 +29,12 @@
             </ul>
         </div>
     </nav>
+    <ul class="sidenav" id="mobile-menu">
+        <li><a href="{{url_for('coin_list', username = session['username'])}}">Coin List</a></li>
+        <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Bagz</a></li>
+        <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a bag</a></li>
+        <li><a href="{{url_for('logout', username = session['username'])}}">Logout</a></li>
+    </ul>
 </header>
 
 <body>

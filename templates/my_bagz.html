@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {%block content%}
-<table id="mybagTable" class="">
+<table id="mybagTable" class="responsive-table striped">
     <thead>
-        <tr class="table_row">
+        <tr>
             <th>Ticker</th>
             <th>Positions</th>
             <th>Current Value</th>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
         {% for pos in positions %}
-        <tr class="table_row">
+        <tr>
             {% set value = pos.amount|float * pos.price_paid|float %}
             {% for coin in data %}
             {% if pos.asset == coin.symbol %}

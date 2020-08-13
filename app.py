@@ -41,7 +41,7 @@ def login():
       user = mongo.db.user.find_one({'name': session['username']})
       return redirect(url_for('index', user=user))
     
-  return render_template('error_page.html')
+  return render_template('error_page.html.html')
 
 """logout route"""
 @app.route('/logout')
@@ -175,7 +175,25 @@ def delete_bag(username, bag_id):
   user = mongo.db.user.update_one({'name': session['username']},
   {'$pull': {'positions': {'_id': bag_id}}})
   
-  return redirect(url_for('get_my_bagz', username = session['username'])) 
+  return redirect(url_for('get_my_bagz', username = session['username']))
+
+
+"""EORROR routes for login page. When a user presses without logging in."""
+@app.route('/coin_list/')
+def coin_error():
+  return render_template('error_page.html')
+
+
+@app.route('/get_my_bagz/')
+def get_my_error():
+  return render_template('error_page.html')
+
+
+@app.route('/create_a_bag/')
+def create_error():
+  return render_template('error_page.html')
+
+
 
 if __name__ == '__main__':
     app.secret_key = os.environ.get('MYSECRETKEY')
