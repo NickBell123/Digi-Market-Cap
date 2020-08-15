@@ -1,6 +1,6 @@
 ﻿# Digi-Market-Cap
 
-![Project Image](/static/images/READMEImage.png)
+![Project Image](/static/images/READMEimage.png)
 
 ### Table of Contents
 You're sections headers will be used to reference location of destination.
