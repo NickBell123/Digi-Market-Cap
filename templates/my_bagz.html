@@ -1,64 +1,70 @@
 {% extends 'base.html' %}
 {%block content%}
-<table id="mybagTable" class="responsive-table striped">
-    <thead>
-        <tr>
-            <th>Ticker</th>
-            <th>Positions</th>
-            <th>Current Value</th>
-            <th>AVG Buy per unit</th>
-            <th>Price Diff</th>
-            <th>Amount invested</th>
-            <th>Purcahse Date</th>
-            <th>Edit</th>
-            <th>Add</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for pos in positions %}
-        <tr>
-            {% set value = pos.amount|float * pos.price_paid|float %}
-            {% for coin in data %}
-            {% if pos.asset == coin.symbol %}
-            <td class="assetName">{{pos.asset}}</td>
-            {% set v1 = pos.price_paid|float %}
-            {% set v2 = coin.quote['USD']['price']|float %}
-            {% set percent_diff = (v2 - v1) / v1 * 100 %}
-            {% set current_value = pos.amount|float * coin.quote['USD']['price']|float %}
-            {% if coin.quote['USD']['price'] > 1 %}
-            <td>{{pos.amount}} x {{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
-            {% else %}
-            <td>{{pos.amount}} x {{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
-            {% endif %}
-            <td class="pieChart_value">{{ "${:.2f}".format(current_value)}}</td>
-            <td>{{"${:.3f}".format(pos.price_paid|float)}}</td>
-            {% if percent_diff > 0 %}
-            <td class="profit-box green">{{"+{:,.2f}%".format(percent_diff)}}</td>
-            {% else %}
-            <td class="profit-box red">{{"{:,.2f}%".format(percent_diff)}}</td>
-            {% endif %}
-            <td>{{"${:.2f}".format(value)}}</td>
-            <td>{{pos.date_of_purchase}}</td>
-            {% endif %}
-            {% endfor %}
-            <td><a href="{{url_for('edit_bag', username = session['username'], bag_id=pos._id)}}"
-                    class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
-            </td>
-            <td><a href="{{url_for('add_to_bag', username = session['username'], bag_id=pos._id)}}"
-                    class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">add</i></a>
-            </td>
-            </td>
-            <td><a href="{{url_for('delete_bag',username = session['username'], bag_id=pos._id)}}"
-                    class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
-            </td>
-        </tr>
-        {% endfor %}
-    </tbody>
-
-</table>
 <div class="container">
-    <div class="ct-chart ct-perfect-fourth"></div>
+    <div class="row">
+        <table id="mybagTable" class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>Ticker</th>
+                    <th>Positions</th>
+                    <th>Current Value</th>
+                    <th>AVG Buy per unit</th>
+                    <th>Price Diff</th>
+                    <th>Amount invested</th>
+                    <th>Purcahse Date</th>
+                    <th>Edit</th>
+                    <th>Add</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pos in positions %}
+                <tr>
+                    {% set value = pos.amount|float * pos.price_paid|float %}
+                    {% for coin in data %}
+                    {% if pos.asset == coin.symbol %}
+                    <td class="assetName">{{pos.asset}}</td>
+                    {% set v1 = pos.price_paid|float %}
+                    {% set v2 = coin.quote['USD']['price']|float %}
+                    {% set percent_diff = (v2 - v1) / v1 * 100 %}
+                    {% set current_value = pos.amount|float * coin.quote['USD']['price']|float %}
+                    {% if coin.quote['USD']['price'] > 1 %}
+                    <td>{{pos.amount}} x {{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
+                    {% else %}
+                    <td>{{pos.amount}} x {{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
+                    {% endif %}
+                    <td class="pieChart_value">{{ "${:.2f}".format(current_value)}}</td>
+                    <td>{{"${:.3f}".format(pos.price_paid|float)}}</td>
+                    {% if percent_diff > 0 %}
+                    <td class="profit-box green">{{"+{:,.2f}%".format(percent_diff)}}</td>
+                    {% else %}
+                    <td class="profit-box red">{{"{:,.2f}%".format(percent_diff)}}</td>
+                    {% endif %}
+                    <td>{{"${:.2f}".format(value)}}</td>
+                    <td>{{pos.date_of_purchase}}</td>
+                    {% endif %}
+                    {% endfor %}
+                    <td><a href="{{url_for('edit_bag', username = session['username'], bag_id=pos._id)}}"
+                            class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">edit</i></a>
+                    </td>
+                    <td><a href="{{url_for('add_to_bag', username = session['username'], bag_id=pos._id)}}"
+                            class="btn-floating btn-small waves-effect waves-light blue"><i class="material-icons">add</i></a>
+                    </td>
+                    </td>
+                    <td><a href="{{url_for('delete_bag',username = session['username'], bag_id=pos._id)}}"
+                            class="btn-floating btn-small waves-effect waves-light red"><i class="material-icons">delete</i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="ct-chart ct-perfect-fourth"></div>
+    </div>
 </div>
 <div class="container">
     <div>

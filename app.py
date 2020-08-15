@@ -41,7 +41,7 @@ def login():
       user = mongo.db.user.find_one({'name': session['username']})
       return redirect(url_for('index', user=user))
     
-  return render_template('error_page.html.html')
+  return render_template('error_page.html')
 
 """logout route"""
 @app.route('/logout')
