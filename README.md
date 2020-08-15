@@ -15,7 +15,7 @@ You're sections headers will be used to reference location of destination.
 
 ## Description
 
-This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed for pure intuitive funcionality for a clean and easy user expirience. However due to the complex nature of finance money and on-top crypto, I feel that the site could imporove UX. 
+This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed for pure intuitive funcionality for a clean and easy user expirience. However due to the complex nature of finance, money and on-top crypto, I feel that the site could improve on UX. 
 
 Please note for now the only currency available on the site is USD.
 
@@ -73,9 +73,16 @@ Step 6: Enter the <strong>price</strong> of the crypto at the <strong>at the tim
 
 Step 7: Enter the date of purchase (optional).
 
-Step 8: Click the submit button at the bottom of the form.
+Step 8: Click the submit button at the bottom of the form. You then automatically be redirect to the My Crypto page where you can view information
+        on your new holding.
+#### Editing a position
+Step 9: You can amend your holding at any time. If, for instance, you make an error duing input. Simply click the edit button in the corresponding
+        row to make changes.
 
+#### Adding to a position
 
+Step 10: You can also add to an exsisinf position by clicking the add button. This feature will add the input amount to the exsisting amount of the
+        crypto selected. An average price is then worked out by the input price and the exsisting price input.
 
 #### Installation
 
