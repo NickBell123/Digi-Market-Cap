@@ -1,6 +1,6 @@
 ﻿# Digi-Market-Cap
 
-![Project Image](READMEImage.png)
+![Project Image](/static/images/READMEImage.png)
 
 ### Table of Contents
 You're sections headers will be used to reference location of destination.
@@ -38,7 +38,7 @@ The site is far from finished but due to time constraits this is as far as I can
 
 ## Deployment
 
-This site was developed using VScode IDE. All changes to the code were then added and committed to the local repository. The commits were then pushed to my GitHub repository and the project deployed using GtiHub pages as follows;
+This site was developed using VScode IDE. All changes to the code were then added and committed to the local repository. The commits were then pushed to my GitHub repository and to Heroku as follows;
 
 Step 1: Go to the settings tab of the repo, scrolled down to GitHub Pages
 
@@ -57,6 +57,25 @@ Step 7: When returning to the github repository settings, scroll down to GitHub 
 ## The repository can be found on:
 
 ## How To Use
+
+Step 1: From the home page, click the link to create an account.
+
+Step 2: On the Register page fill out the fields. Enter an available username (one which is not already in use) and password and click the button.
+
+Step 3: On succesful loggin you will be directed to the coin list page. Here you can view stats on the top 200 cryptos by market cap.
+
+Step 4: To create a position/holding of crypto click the 'Add a Crypto' button in the top right of the navbar. 
+
+Step 5: Select the crypto you wish to add to you holdings. Enter the amount you are 'holding' or have.
+
+Step 6: Enter the <strong>price</strong> of the crypto at the <strong>at the time of purchase</strong>. Not the total amount paid for the crypto.
+        Example, I buy 0.25 of Bitcoin and the price at purchase was $11500, I would enter 0.25 for amount and 11500 for price per unit.
+
+Step 7: Enter the date of purchase (optional).
+
+Step 8: Click the submit button at the bottom of the form.
+
+
 
 #### Installation
 
@@ -78,27 +97,7 @@ Step 7: When returning to the github repository settings, scroll down to GitHub 
 
 ## License
 
-MIT License
 
-Copyright (c) [2017] [James Q Quick]
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
 
 [Back To The Top](#read-me-template)
 
@@ -106,7 +105,7 @@ SOFTWARE.
 
 ## Author Info
 
-- Twitter - [@jamesqquick](https://twitter.com/jamesqquick)
-- Website - [James Q Quick](https://jamesqquick.com)
+- Twitter - 
+- Website - 
 
 [Back To The Top](#read-me-template)

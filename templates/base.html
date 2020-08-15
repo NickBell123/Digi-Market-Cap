@@ -23,16 +23,16 @@
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="{{url_for('coin_list', username = session['username'])}}">Coin List</a></li>
-                <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Bagz</a></li>
-                <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a bag</a></li>
+                <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Crypto</a></li>
+                <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a Crypto</a></li>
                 <li><a href="{{url_for('logout', username = session['username'])}}">Logout</a></li>
             </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-menu">
         <li><a href="{{url_for('coin_list', username = session['username'])}}">Coin List</a></li>
-        <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Bagz</a></li>
-        <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a bag</a></li>
+        <li><a href="{{url_for('get_my_bagz', username = session['username'])}}">My Crypto</a></li>
+        <li><a href="{{url_for('create_a_bag', username = session['username'])}}">Add a Crypto</a></li>
         <li><a href="{{url_for('logout', username = session['username'])}}">Logout</a></li>
     </ul>
 </header>
