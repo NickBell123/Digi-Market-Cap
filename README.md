@@ -81,8 +81,8 @@ Step 9: You can amend your holding at any time. If, for instance, you make an er
 
 #### Adding to a position
 
-Step 10: You can also add to an exsisinf position by clicking the add button. This feature will add the input amount to the exsisting amount of the
-        crypto selected. An average price is then worked out by the input price and the exsisting price input.
+Step 10: You can also add to an exsisting position by clicking the add button. This feature will add the input amount submitted in the form to 
+        the exsisting amount of the crypto selected. An average price is then worked out by the input price and the exsisting price input.
 
 #### Installation
 
