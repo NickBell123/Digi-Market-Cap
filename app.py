@@ -193,10 +193,9 @@ def get_my_error():
 def create_error():
   return render_template('error_page.html')
 
-
+app.secret_key = os.environ.get('MYSECRETKEY')
 
 if __name__ == '__main__':
-    app.secret_key = os.environ.get('MYSECRETKEY')
     app.run(host=os.environ.get('IP'), 
         port=(os.environ.get('PORT')),
         debug=True)
