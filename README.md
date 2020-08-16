@@ -6,14 +6,14 @@
 You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
+- [Deployment](#deployment)
 - [How To Use](#how-to-use)
-- [References](#references)
-- [License](#license)
 - [Author Info](#author-info)
 
 ---
 
 ## Description
+The purpose of this project was to create an app with full CRUD capability. I choose the subject of Crypto currencies as I find the topic and tech very interesting.
 
 This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed for pure intuitive funcionality for a clean and easy user expirience. However due to the complex nature of finance, money and on-top crypto, I feel that the site could improve on UX. 
 
@@ -21,21 +21,30 @@ Please note for now the only currency available on the site is USD.
 
 The site is far from finished but due to time constraints this is as far as I can take it for now.
 
-## UX
+### UX
 
 * As site owner, the objective is to provide a simple soultion for crypto fans to follow their favorite 'coins'. In doing so create traffic to the site for potentional add or subscription revenue. 
 * There is also a possibility to notice trends forming amoung users should there be enough data.
 
 * As a visitor, the objective of the website to provide a simple, visual content with intutive design, of the users holdings of cryptos. The user should be able to browse the current top 200. View lastest info provided by the API and preform full CRUD capabilities on their holdings.
 
-## Existing Features
+### Existing Features
 
 * Current Crypto information form Coinmarketcap.api.com. (updated every 5 mins)
 * Global Crypto market cap and Bitcoin Dominance
 * Top 200 Crypto by market cap
 * Easy to search and sort data in Table, with formatted data (datatables.net cdn)
+* Track preformance of holdings/positions
+* Pie chart of portfolio balance of holdings
 
-#### Technologies
+### Future Features
+
+* Additional currency support
+* Historical price info to support more charts
+* Better UX desgin
+* Favorite Tab
+
+### Technologies
 
 - Python
 - Flask
@@ -93,13 +102,15 @@ Step 4: To create a position/holding of crypto click the 'Add a Crypto' button i
 Step 5: Select the crypto you wish to add to you holdings. Enter the amount you are 'holding' or have.
 
 Step 6: Enter the <strong>price</strong> of the crypto at the <strong>at the time of purchase</strong>. Not the total amount paid for the crypto.
-        Example, I buy 0.25 of Bitcoin and the price at purchase was $11500, I would enter 0.25 for amount and 11500 for price per unit.
+        Example, I buy 0.25 of Bitcoin and the price at purchase was $11500 per Bitcoin, I would enter 0.25 for amount and 11500 for price per unit.
 
 Step 7: Enter the date of purchase (optional).
 
 Step 8: Click the submit button at the bottom of the form. You then automatically be redirect to the My Crypto page where you can view information
         on your new holding.
+
 #### Editing a position
+
 Step 9: You can amend your holding at any time. If, for instance, you make an error duing input. Simply click the edit button in the corresponding
         row to make changes.
 
@@ -113,25 +124,10 @@ Step 10: You can also add to an exsisting position by clicking the add button. T
 Step 11: You can delete a position or holding buy clicking the delete button in the table row. This will remove the position form the My Crypto page
          and the data base.
 
-```html
-    <p>dummy code</p>
-```
-[Back To The Top](#read-me-template)
-
----
-
-## References
-[Back To The Top](#read-me-template)
-
----
-
-## License
 
 
+## Testing
 
-[Back To The Top](#read-me-template)
-
----
 
 ## Author Info
 
