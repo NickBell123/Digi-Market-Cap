@@ -37,7 +37,11 @@
                     <td>{{pos.amount}} x {{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
                     {% endif %}
                     <td class="pieChart_value">{{ "${:.2f}".format(current_value)}}</td>
-                    <td>{{"${:.3f}".format(pos.price_paid|float)}}</td>
+                    {% if pos.price_paid|float  < 1 %}
+                    <td>{{"${:.4f}".format(pos.price_paid|float)}}</td>
+                    {% else %}
+                    <td>{{"${:.2f}".format(pos.price_paid|float)}}</td>
+                    {% endif %}
                     {% if percent_diff > 0 %}
                     <td class="profit-box green">{{"+{:,.2f}%".format(percent_diff)}}</td>
                     {% else %}

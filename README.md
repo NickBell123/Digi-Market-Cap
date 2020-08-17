@@ -127,11 +127,23 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 
 ## Testing
+* Crome dev tools was use throughout the project checking responsive handling and looging errors
 
+* All HTML went through W3C HTML validator
+
+* CSS through W3C CSS validator
+
+* Lighthouse
+
+* PEP8 for Python
+
+#### Issues
+
+The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incriementing values in an array. There were some fiddly formatting and style issues as well. 
 
 ## Author Info
 
-- Twitter - 
-- Website - 
+- GitHub -
+ 
 
 [Back To The Top](#read-me-template)
