@@ -1,4 +1,6 @@
-
+html {
+    line-height: .95;
+}
 .bg-image{
     height: 100vh;
     width: 100%;
@@ -41,6 +43,10 @@ nav .brand-logo {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+table.dataTable.no-footer {
+    border-bottom-style: none;
 }
 
 /* Media queries */
