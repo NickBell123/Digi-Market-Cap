@@ -1,5 +1,9 @@
-html {
+#myCoinTable {
     line-height: .95;
+}
+
+#mybagTable {
+    line-height: 1.25;
 }
 .bg-image{
     height: 100vh;
@@ -60,6 +64,17 @@ table.dataTable.no-footer {
         background-repeat: no-repeat;
         background-image: url("/static/images/bg-image.jpg");
          /* image by VectorStock / Dimasic50 */
+    }
+}
+
+@media only screen and (max-width: 992px) {
+
+    #mybagTable {
+        line-height: 2;
+    }
+    
+    .bag_table{
+        line-height: 2.3;
     }
 }
 

@@ -20,7 +20,7 @@
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="bag_table">
                 {% for pos in positions %}
                 <tr>
                     {% set value = pos.amount|float * pos.price_paid|float %}
