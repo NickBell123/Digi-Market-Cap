@@ -29,6 +29,10 @@ nav .brand-logo {
     margin-left: 10px;
 }
 
+.btn-small {
+    height: 20px;
+    line-height: 20px;
+}
 
 .profit-box{
     border: solid 0.5px;
@@ -42,6 +46,7 @@ nav .brand-logo {
 .login-form{
     margin: 20px;
     border: solid 1px;
+    border-radius: 25px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -76,6 +81,10 @@ table.dataTable.no-footer {
     .bag_table{
         line-height: 2.3;
     }
+}
+
+.hidden {
+    display: none;
 }
 
 

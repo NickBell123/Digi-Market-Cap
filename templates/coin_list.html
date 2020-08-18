@@ -6,12 +6,16 @@
     <span>Current Market Cap: {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
     <span>Bitcion Dominance: {{"{:.2f}%".format(global_data['btc_dominance'])}}</span>
   </div>
+  <div>
+    <button id="#favorite">Favorites</button>
+  </div>
 </div>
 
 <div class="container">
   <table class="responsive-table striped" id="myCoinTable">
     <thead>
       <tr>
+        <th>#</th>
         <th>Rank</th>
         <th>Item Name</th>
         <th>Ticker</th>
@@ -27,6 +31,11 @@
     <tbody class="coin_body">
       {% for coin in data %}
       <tr>
+        <td>
+          <div class="center-align"><button class="btn-small fav_star"><i class="material-icons">star_border</i></button>
+            <input type="checkbox">
+          </div>
+        </td>
         <td class="center-align">{{loop.index}}</td>
         <td><strong>{{coin.name}}</strong></td>
         <td class="center-align">{{coin.symbol}}</td>

@@ -1,9 +1,10 @@
 $(document).ready(function () {
+    // materialize inistialise form fuctions 
     $('.sidenav').sidenav();
     $('.datepicker').datepicker();
     $('select').formSelect();
     
-   
+    // datatable.net settings   
     $('#myCoinTable').DataTable({
         "dom":"ftip",
         "paging": true,
@@ -18,7 +19,19 @@ $(document).ready(function () {
             "orderable": false
         }]       
     });
+
+    // favorites functionality
+    $('.fav_star').click(function(){
+        $(this).toggleClass("yellow").attr("favorite", true);
+    })
+
+    $('#favorite').click(function(){
+        if ($('.fav_star').attr("favorite", true) !==true );
+            $('.fav_star').hide()
+    })
     
+    
+    // Chartist.js function
     let myValues = []
     
     myVal = $('.pieChart_value')

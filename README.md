@@ -85,7 +85,7 @@ I Deployed my app on Heroku
 
 ## The repository can be found on:
  
-https://github.com/NickBell123/Digi-Market-Cap
+[here](https://github.com/NickBell123/Digi-Market-Cap)
 
 ## How To Use
 
