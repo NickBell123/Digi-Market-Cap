@@ -5,6 +5,11 @@
 #mybagTable {
     line-height: 1.25;
 }
+
+#myCoinTable_info,
+#myCoinTable_paginate {
+    margin: 10px 0px;
+}
 .bg-image{
     height: 100vh;
     width: 100%;
@@ -18,8 +23,14 @@
 
 .loginPage {
     margin-top: 50px;
-
 }
+
+.login-form{
+    background-color: whitesmoke;
+    opacity: 0.9;
+    color: black;
+}
+
 nav{
     background-color: #6e75ee;
 }

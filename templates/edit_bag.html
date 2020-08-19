@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% include 'header.html' %}
 {% block content %}
 <h3>Holding for {{bag.asset}}</h3>
 <div class="row">
@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">control_point</i>
-                    <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate">
+                    <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate" required>
                         <label>Edit a coin</label>
                         {% for coin in data %}
                         {% if bag.asset == coin.symbol %}

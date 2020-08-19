@@ -1,5 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
+
+<header>
+    <nav class="sidenav-trigger">
+        <div class="nav-wrapper">
+            <a href="{{url_for('index', username = session['username'])}}" class="brand-logo"><strong>Digi Market Cap</strong></a>
+        </div>
+    </nav>
+</header>
+
 <div class="bg-image">
     <div class="container">
         <div class="row">
