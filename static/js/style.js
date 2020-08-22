@@ -1,3 +1,8 @@
+$(window).on("load", function(){
+    $(".preloader-wrapper").toggleClass("hidden");
+});
+
+
 $(document).ready(function () {
     // materialize inistialise form fuctions 
     $('.sidenav').sidenav();

@@ -1,17 +1,48 @@
+.preloader-wrapper {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    height: 100vh;
+}
+
+#myCoinTable_wrapper {
+    margin: 10px 20px;
+}
+
 #myCoinTable {
-    line-height: .95;
+    padding: 0;
 }
 
 #mybagTable {
-    line-height: 1.25;
+    padding: 0;
 }
 
 #myCoinTable_info,
 #myCoinTable_paginate {
     margin: 10px 0px;
 }
+.top-header {
+    background-color: red;
+}
+
+.header-icons {
+    display: flex;
+
+}
+
+.edit-form {
+    height: 90vh;
+}
+
 .bg-image{
-    height: 100vh;
+    height: 90vh;
     width: 100%;
     background-attachment: fixed;
     background-size: cover;
@@ -36,8 +67,12 @@ nav{
 }
 
 nav .brand-logo {
-    font-size: 1.3em;
+    font-size: 3em;
     margin-left: 10px;
+}
+
+table.dataTable tbody tr {
+    padding: 10px;
 }
 
 .btn-small {
@@ -63,27 +98,33 @@ nav .brand-logo {
     flex-direction: column;
     align-items: center;
     text-align: center;
+} 
+
+.coin_body{
+    line-height: 1.75;
 }
 
 table.dataTable.no-footer {
     border-bottom-style: none;
 }
 
-/* Media queries */
-@media only screen and (max-width: 1063px){
-    .bg-image{
-        height: 100vh;
-        width: 100%;
-        background-attachment: fixed;
-        background-size: cover;
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-image: url("/static/images/bg-image.jpg");
-         /* image by VectorStock / Dimasic50 */
-    }
+.page-footer {
+    padding: 0;
+    background-color: transparent;
 }
 
+.page-footer .footer-copyright{
+   padding: 0;
+   color: white;
+   background-color: red; 
+}
+
+/* Media queries */
+
 @media only screen and (max-width: 992px) {
+    nav .brand-logo {
+        font-size: 1.25em;
+    }
 
     #mybagTable {
         line-height: 2;
@@ -91,6 +132,13 @@ table.dataTable.no-footer {
     
     .bag_table{
         line-height: 2.3;
+    }
+    table.responsive-table thead {
+        font-size: 13px;
+    }
+
+    table.dataTable tbody tr {
+        padding: 20px 10px;
     }
 }
 

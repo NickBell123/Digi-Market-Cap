@@ -1,51 +1,58 @@
 {% extends 'base.html' %}
-{% include 'header.html' %}
+}
 {% block content %}
-<h3>Holding for {{bag.asset}}</h3>
-<div class="row">
-    <form action="{{url_for('update_bag', username = session['username'], bag_id=bag_id)}}" method="POST" class="col s12">
-        <div class="row">
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">control_point</i>
-                    <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate" required>
-                        <label>Edit a coin</label>
-                        {% for coin in data %}
-                        {% if bag.asset == coin.symbol %}
-                        <option value="{{bag.asset}}"selected >{{coin.symbol}}</option>
-                        {% else %}
-                        <option>{{coin.symbol}}</option>
-                        {% endif %}
-                        {% endfor %}
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">info</i>
-                    <input id="amount" name="amount" type="number" min="0" step="0.001" value="{{bag.amount}}" class="validate">
-                    <label>Add or reduce amount of asset</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">monetization_on</i>
-                    <input id="price_paid" name="price_paid" type="number" min="0" step="0.001" value="{{bag.price_paid}}" class="validate">
-                    <label>Optional</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">date_range</i>
-                    <input id="date_of_purchase" name="date_of_purchase" type="text" value="{{bag.date_of_purchase}}"
-                        class="datepicker">
-                        <label>Optional</label>
-                </div>
-            </div>
-            <button class="btn-floating waves-effect waves-light" type="submit">
-                <i class="material-icons">send</i>
-            </button>
-        </div>
-    </form>
+{% include 'header.html' %}
+<div class="container">
+    <h3 class="center-align">Holding for {{bag.asset}}</h3>
 </div>
+<div class="container">
+    <div class="row">
+        <form action="{{url_for('update_bag', username = session['username'], bag_id=bag_id)}}" method="POST" class="col s12 edit-form">
+            <div class="row">
+                <div class="row">
+                    <div class="input-field col s12">
+                        
+                        <i class="material-icons prefix">control_point</i>
+                        <select id="assets" name="asset" value="{{bag.asset}}" type="text" class="validate" required>
+                            {% for coin in data %}
+                            {% if bag.asset == coin.symbol %}
+                            <option value="{{bag.asset}}"selected >{{coin.symbol}}</option>
+                            {% else %}
+                            <option>{{coin.symbol}}</option>
+                            {% endif %}
+                            {% endfor %}
+                        </select>
+                        <label>Asset</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">info</i>
+                        <input id="amount" name="amount" type="number" step="0.001" value="{{bag.amount}}" class="validate">
+                        <label>Asset amount</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">monetization_on</i>
+                        <input id="price_paid" name="price_paid" type="number" min="0" step="0.001" value="{{bag.price_paid}}" class="validate">
+                        <label>Price per unit</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">date_range</i>
+                        <input id="date_of_purchase" name="date_of_purchase" type="text" value="{{bag.date_of_purchase}}"
+                            class="datepicker">
+                            <label>Optional</label>
+                    </div>
+                </div>
+                <button class="btn-floating waves-effect waves-light" type="submit">
+                    <i class="material-icons">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
 {% endblock %}

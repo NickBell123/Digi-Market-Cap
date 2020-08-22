@@ -14,19 +14,38 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>Digi Market Cap</title>
 </head>
-
-
+<!-- Preloader Div -->
+<div class="preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+            <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+            <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+            <div class="circle"></div>
+        </div>
+    </div>
+</div>
+<!-- /Preloader -->
 <body>
     {% block content %}
     {% endblock %}
 
     <footer class="page-footer">
         <div class="footer-copyright">
-            <div class="container s12">
-                © 2014 Copyright Text
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <div class="disclaimer">
+                <i class="material-icons prefix">warning</i>
+                <strong>This site is for educational perposes only!</strong>
+                <span>
+                    © 2020 Copyright
+                </span>
             </div>
+
         </div>
+
+
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

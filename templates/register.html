@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
-
+<div class="top-header center-align">
+    🚀 <b> Digi Market Cap is here! </b> 🚀 Start tracking your holdings wherever you go! 
+</div>
 <header>
     <nav class="sidenav-trigger">
         <div class="nav-wrapper">
-            <a href="{{url_for('index', username = session['username'])}}" class="brand-logo"><strong>Digi Market Cap</strong></a>
+            <a href="{{url_for('index', username = session['username'])}}" class="brand-logo">
+                <strong>
+                    <em>Digi Market Cap</em>
+                </strong>
+            </a>
         </div>
     </nav>
 </header>
@@ -13,22 +19,22 @@
     <div class="container">
         <div class="row">
             <div class="container col s12">
-                <h3 class="center-align"><em>Track your crypto portfolio</em></h3>
+                <h3 class="center-align">Welcome!</h3>
                 <div class="container loginPage">
                     <div class="row">
                         <form method="POST" action="{{url_for('register')}}" class="login-form col s12">
-                            <h3>Welcome! Please create an account.</h3>
+                            <h4>Please create an account.</h4>
                             <div class="row">
                                 <div class="input-field col s12">
                                     <input placeholder="Username" name="username" id="first_name" type="text"
-                                        class="validate">
+                                        class="validate" maxlength="20" required>
                                     <label for="first_name">Username</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="password" name="password" type="password" class="validate">
-                                    <label for="password">Password</label>
+                                    <input placeholder="* min of 6 characters" id="password" name="password" type="password" class="validate" maxlength="20" pattern=".{6,}" required>
+                                    <label for="password">Password </label>
                                 </div>
                             </div>
                             <button class="btn-floating waves-effect waves-light" type="submit">
