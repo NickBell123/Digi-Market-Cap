@@ -79,7 +79,7 @@ def coin_list(username):
   c
 
 """create a holding of crypto"""
-@app.route('/create_a_bag/<username>')
+@app.route('/add_crypto/<username>')
 def create_a_bag(username):
   if 'username' in session:
     _id = ObjectId()
@@ -104,15 +104,15 @@ def add_to_bagz(username):
 
 
 """display/read users puchases/holdings"""
-@app.route('/get_my_bagz/<username>')
+@app.route('/my_crypto/<username>')
 def get_my_bagz(username):
   if 'username' in session:
     user = mongo.db.user.find_one({'name': session['username']})
-    return render_template('my_bagz.html', positions=user['positions'], data=data, username = session['username'])
+    return render_template('my_crypto.html', positions=user['positions'], data=data, username = session['username'])
   return render_template('error_page.html')
 
 """update users puchases/holdings"""
-@app.route('/edit_bag/<username>/<bag_id>')
+@app.route('/edit/<username>/<bag_id>')
 def edit_bag(username, bag_id):
   if 'username' in session:
     user = mongo.db.user.find_one({'name': session['username']})
@@ -151,7 +151,7 @@ def add_to_bag(username, bag_id):
   return render_template('add_to.html', bag=bag, data=data, bag_id=bag_id)
 
 
-"""adds or subs from exsiting holding and creates an average buy price of the asset"""
+"""adds to exsiting holding and creates an average buy price of the asset"""
 @app.route('/adding_to_bag/<username>/<bag_id>', methods=["POST"])
 def adding_to_bag(username, bag_id):
   user = mongo.db.user.find_one({'name': session['username']})
@@ -178,7 +178,7 @@ def adding_to_bag(username, bag_id):
   return redirect(url_for('get_my_bagz', username = session['username'], bag_id=bag_id))
 
 """delete users puchases/holdings"""
-@app.route('/delete_bag/<username>/<bag_id>')
+@app.route('/delete/<username>/<bag_id>')
 def delete_bag(username, bag_id):
   user = mongo.db.user.update_one({'name': session['username']},
   {'$pull': {'positions': {'_id': bag_id}}})
