@@ -64,59 +64,66 @@ def register():
     exsisting_user = user.find_one({'name': request.form['username']})
     if exsisting_user is None:
       hashpassword = bcrypt.hashpw(request.form['password'].encode('utf-8'), bcrypt.gensalt())
-      user.insert_one({'name': request.form['username'], 'password': hashpassword})
+      user.insert_one({'name': request.form['username'], 'password': hashpassword, 'positions': []})
       session['username'] = request.form['username']
       return redirect(url_for('index'))
-    return 'SORRY! That username is taken'
+    return render_template('error_page.html')
   return render_template("register.html")
 
 
 """Coin list page info via CMC API"""
 @app.route('/coin_list/<username>')
 def coin_list(username):
-  
-  return render_template("coin_list.html", data=data, global_data=global_data)
-
+  if 'username' in session:
+    return render_template("coin_list.html", data=data, global_data=global_data)
+  c
 
 """create a holding of crypto"""
 @app.route('/create_a_bag/<username>')
 def create_a_bag(username):
-  _id = ObjectId()
-  return render_template("create_a_bag.html", data=data, _id=_id, username = session['username'])
+  if 'username' in session:
+    _id = ObjectId()
+    return render_template("create_a_bag.html", data=data, _id=_id, username = session['username'])
+  return render_template('error_page.html')
 
 """push holding to db"""
 @app.route('/add_to_bagz/<username>', methods=["POST"])
 def add_to_bagz(username):
-  user = mongo.db.user.update_one({'name': session['username']},
-  {'$push': {'positions': {
-    '_id': request.form.get('_id'),
-    'asset': request.form.get('asset'),
-    'amount': float(request.form.get('amount')), 
-    'price_paid': float(request.form.get('price_paid')),
-    'date_of_purchase': request.form.get('date_of_purchase')
-  }}})
-  
-  return redirect(url_for('get_my_bagz', username = session['username']))
+  if 'username' in session:
+    user = mongo.db.user.update_one({'name': session['username']},
+      {'$push': {'positions': {
+      '_id': request.form.get('_id'),
+      'asset': request.form.get('asset'),
+      'amount': float(request.form.get('amount')), 
+      'price_paid': float(request.form.get('price_paid')),
+      'date_of_purchase': request.form.get('date_of_purchase'),
+      'favorite': request.form.get('favorite')
+     }}})
+    return redirect(url_for('get_my_bagz', username = session['username']))
+  return render_template('error_page.html')
+
 
 """display/read users puchases/holdings"""
 @app.route('/get_my_bagz/<username>')
 def get_my_bagz(username):
-  user = mongo.db.user.find_one({'name': session['username']})
- 
-  return render_template('my_bagz.html', positions=user['positions'], data=data, username = session['username'])
-
+  if 'username' in session:
+    user = mongo.db.user.find_one({'name': session['username']})
+    return render_template('my_bagz.html', positions=user['positions'], data=data, username = session['username'])
+  return render_template('error_page.html')
 
 """update users puchases/holdings"""
 @app.route('/edit_bag/<username>/<bag_id>')
 def edit_bag(username, bag_id):
-  user = mongo.db.user.find_one({'name': session['username']})
-  positions=user['positions']
-  for pos in positions:
-    if pos['_id'] == bag_id:
-      bag = pos
-  
-  return render_template("edit_bag.html", data=data, username = session['username'], bag_id=bag_id, bag=bag)
+  if 'username' in session:
+    user = mongo.db.user.find_one({'name': session['username']})
+    positions=user['positions']
+    for pos in positions:
+      if pos['_id'] == bag_id:
+       bag = pos
+    return render_template("edit_bag.html", data=data, username = session['username'], bag_id=bag_id, bag=bag)
+  return render_template('error_page.html')
 
+  
 """update users puchases/holdings"""
 @app.route('/update_bag/<username>/<bag_id>', methods=["POST"])
 def update_bag(username, bag_id):
@@ -126,7 +133,8 @@ def update_bag(username, bag_id):
     'positions.$.asset': request.form.get('asset'),
     'positions.$.amount': float(request.form.get('amount')), 
     'positions.$.price_paid': float(request.form.get('price_paid')),
-    'positions.$.date_of_purchase': request.form.get('date_of_purchase')
+    'positions.$.date_of_purchase': request.form.get('date_of_purchase'),
+    'positions.$.favorite': request.form.get('favorite')
   }})
   
   return redirect(url_for('get_my_bagz', username = session['username']))
@@ -161,7 +169,7 @@ def adding_to_bag(username, bag_id):
     'positions.$.price_paid': avgPrice 
   }})   
 
-  """add and sub from amount"""
+  """add to exsisting amount"""
   user = mongo.db.user.update_one({'name': session['username'], 'positions._id': bag_id }, 
   {'$inc':
   {

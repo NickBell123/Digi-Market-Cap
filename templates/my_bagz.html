@@ -2,13 +2,15 @@
 
 {%block content%}
 {% include 'header.html' %}
+<hr>
 <div class="container">
-    <h3 class="center-align">Your Crypto Holdings</h3>
+    <h4 class="center-align">Your Crypto Holdings</h4>
 </div>
+<hr>
 <div class="container">
     <div class="row">
         <table id="mybagTable" class="responsive-table striped">
-            <thead>
+            <thead id="my_crypto_table_head">
                 <tr>
                     <th>Ticker</th>
                     <th>Positions</th>

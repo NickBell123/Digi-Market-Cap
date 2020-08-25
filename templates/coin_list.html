@@ -4,7 +4,9 @@
 {% include 'header.html' %}
 
 <hr>
-<h4 class="center-align">Top 100 Cryptos By Market Cap</h4>
+<div class="container">
+  <h4 class="center-align">Top 200 Cryptos By Market Cap</h4>
+</div>
 <hr>
 <div class="global_stats">
   <span>Current Market Cap: {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
@@ -14,10 +16,10 @@
 <hr>
 <table class="responsive-table striped" id="myCoinTable">
   <thead>
-    <tr>
+    <tr class="favorite">
       <th>
         <div>
-          <button id="#favorite">Favorites</button>
+          <button id="is_favorite">Favorites</button>
         </div>
       </th>
       <th>Rank</th>
@@ -35,8 +37,9 @@
     {% for coin in data %}
     <tr>
       <td>
-        <div class="center-align"><button class="btn-small fav_star"><i class="material-icons">star_border</i></button>
-          <input type="checkbox">
+        <div class="center-align"><button class="switch btn-small fav_star">
+            <input type="checkbox" checked="checked" /><i class="material-icons">star_border</i>
+          </button>
         </div>
       </td>
       <td class="center-align">{{loop.index}}</td>

@@ -12,8 +12,11 @@ $(document).ready(function () {
     // datatable.net settings   
     $('#myCoinTable').DataTable({
         "dom":"ftip",
-        "paging": true,
-        "pageLength": 50           
+        "paging": false,
+        "columnDefs": [{
+            "targets":[0],
+            "orderable": false
+        }]           
     });
 
     $('#mybagTable').DataTable({
@@ -22,18 +25,26 @@ $(document).ready(function () {
         "columnDefs": [{
             "targets":[7,8,9],
             "orderable": false
-        }]       
+        }]
     });
 
     // favorites functionality
     $('.fav_star').click(function(){
-        $(this).toggleClass("yellow").attr("favorite", true);
+        $(this).toggleClass("yellow");
+        $(this).closest('tr').toggleClass('favorite')
     })
 
-    $('#favorite').click(function(){
-        if ($('.fav_star').attr("favorite", true) !==true );
-            $('.fav_star').hide()
+    $('#is_favorite').click(function(){
+        $('tr').each(function(){
+            if ($(this).hasClass('favorite') == false ){
+                $(this).toggleClass('hidden')
+            }
+        })    
+        
     })
+
+   
+    console.log($('tr'))
     
     
     // Chartist.js function

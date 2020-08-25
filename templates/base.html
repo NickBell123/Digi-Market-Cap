@@ -14,21 +14,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
     <title>Digi Market Cap</title>
 </head>
-<!-- Preloader Div -->
-<div class="preloader-wrapper big active">
-    <div class="spinner-layer spinner-blue-only">
-        <div class="circle-clipper left">
-            <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-            <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-            <div class="circle"></div>
-        </div>
-    </div>
-</div>
-<!-- /Preloader -->
+
 <body>
     {% block content %}
     {% endblock %}
@@ -42,11 +28,23 @@
                     © 2020 Copyright
                 </span>
             </div>
-
         </div>
-
-
     </footer>
+    <!-- Preloader Div -->
+    <div class="preloader-wrapper big active">
+        <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+                <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+                <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+                <div class="circle"></div>
+            </div>
+        </div>
+    </div>
+    <!-- /Preloader -->
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">

@@ -1,10 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="bg-image">
-    <h3 class="center-align">
-        <strong><em>Sorry!</strong><br>Please log in or create an account to use this feature!</em>
-    </h3>
-    <p></p>
+<div class="error_wrapper">
+    <div class="bg-image">
+        <h3 class="center-align">
+            <strong>Sorry!</strong><br><em>There was an error.</em>
+        </h3>
+        <h4>Possible issues</h4>
+        <ul>
+            <li>The username you are using is already taken.</li>
+            <li>The username and/or password do not match our records.</li>
+            <li>You are not logged in.</li>
+        </ul>
+        <a href="{{url_for('index')}}">BACK</a>
+    </div>
 </div>
+
 
 {% endblock %}
