@@ -155,7 +155,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 #### Issues
 
-The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incriementing values in an array. There were some fiddly formatting and style issues as well. 
+The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incrementing values in an array. There were some fiddly formatting and style issues as well. 
 
 ## Author Info
 
