@@ -15,7 +15,7 @@ You're sections headers will be used to reference location of destination.
 ## Description
 The purpose of this project was to create an app with full CRUD capability. I choose the subject of Crypto currencies as I find the topic and tech very interesting.
 
-This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed for pure intuitive funcionality for a clean and easy user expirience. However due to the complex nature of finance, money and on-top crypto, I feel that the site could improve on UX. 
+This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed intuitive functionality and for a clean and easy user expirience. However due to the complex nature of finance, money as well as on-top crypto, I feel that the site could improve on UX. 
 
 Please note for now the only currency available on the site is USD.
 
@@ -28,8 +28,24 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 * As a visitor, the objective of the website to provide a simple, visual content with intutive design, of the users holdings of cryptos. The user should be able to browse the current top 200. View lastest info provided by the API and preform full CRUD capabilities on their holdings.
 
-### Existing Features
 
+### User stories 
+
+#### New users
+- As a user, I want to create my own account, so that I can save, view and edit my crypto 'holdings'.
+
+#### All users
+- As a user, I expect to access the website from any device, so that I can use the website anytime and anywhere.
+- As a user, I expect to be able to view my cryptp purchases, update, edit and delete as required.
+- As a user, I expect  the site to be easy to use and not need to read instructions to use.
+- As a user, I want to use the site to see the current value of some of my favorite cryptos easily.
+- As a user, I want to be able to check on my crypto value and performance in terms of percentage gains or losses.
+
+
+### Existing Features
+* Full CRUD capability on crypto positions. Allows for additon to an exsisting position.
+* The site displays an avrage buy-in cost and amount invested based on users inputs.
+* The site dispalys a percentage profit or loss based on the user inputs and current price.
 * Current Crypto information form Coinmarketcap.api.com. (updated every 5 mins)
 * Global Crypto market cap and Bitcoin Dominance
 * Top 200 Crypto by market cap
@@ -91,7 +107,7 @@ I Deployed my app on Heroku
 
 Step 1: From the home page, click the link to create an account.
 
-Step 2: On the Register page fill out the fields. Enter an available username (one which is not already in use) and password and click the button.
+Step 2: On the Register page fill out the fields. Enter an available username (one which is not already in use) and password and click the submit button.
 
 Step 3: On succesful loggin you will be directed to the coin list page. Here you can view stats on the top 200 cryptos by market cap.
 
