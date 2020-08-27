@@ -1,3 +1,4 @@
+
 .preloader-wrapper {
     height: 100%;
     width: 100%;
@@ -116,13 +117,14 @@ table.dataTable.no-footer {
 
 .page-footer {
     padding: 0;
-    background-color: transparent;
 }
+
 
 .page-footer .footer-copyright{
    padding: 0;
    color: white;
    background-color: red; 
+   font-size: 10px;
 }
 
 .error_wrapper{
@@ -133,6 +135,7 @@ table.dataTable.no-footer {
 /* Media queries */
 
 @media only screen and (max-width: 992px) {
+
     nav .brand-logo {
         font-size: 1.25em;
         margin: 0;
@@ -156,6 +159,12 @@ table.dataTable.no-footer {
 
     table.dataTable tbody tr {
         padding: 20px 10px;
+    }
+}
+
+@media only screen and (min-width: 0) {
+    html {
+        font-size: 11px;
     }
 }
 
