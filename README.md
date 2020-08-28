@@ -161,7 +161,7 @@ The biggest challenge for me in this build was learning the MongoDb syntax, in p
 
 ## Author Info
 
-- GitHub -
+- GitHub - https://github.com/NickBell123
  
 
 [Back To The Top](#read-me-template)
