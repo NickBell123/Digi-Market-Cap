@@ -3,7 +3,6 @@
 ![Project Image](/static/images/READMEimage.png)
 
 ### Table of Contents
-You're sections headers will be used to reference location of destination.
 
 - [Description](#description)
 - [Deployment](#deployment)
@@ -20,6 +19,9 @@ This site is intended to allow users to follow the top 200 Crypto's by market ca
 Please note for now the only currency available on the site is USD.
 
 The site is far from finished but due to time constraints this is as far as I can take it for now.
+
+- The wireframes for the project can be found [here](static/images/wireframes.pdf)
+- The site data schema is available [here](static/images/DataSchema.png)
 
 ### UX
 
@@ -159,7 +161,7 @@ The biggest challenge for me in this build was learning the MongoDb syntax, in p
 
 ## Author Info
 
-- GitHub -
+- GitHub - https://github.com/NickBell123
  
 
 [Back To The Top](#read-me-template)
