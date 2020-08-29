@@ -28,15 +28,15 @@ $(document).ready(function () {
         }]
     });
 
-    // favorites functionality
+    // favourites functionality
     $('.fav_star').click(function(){
         $(this).toggleClass("yellow");
-        $(this).closest('tr').toggleClass('favorite')
+        $(this).closest('tr').toggleClass('favourite')
     })
 
-    $('#is_favorite').click(function(){
+    $('#is_favourite').click(function(){
         $('tr').each(function(){
-            if ($(this).hasClass('favorite') == false ){
+            if ($(this).hasClass('favourite') == false ){
                 $(this).toggleClass('hidden')
             }
         })    
