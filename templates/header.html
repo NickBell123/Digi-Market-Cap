@@ -1,25 +1,36 @@
 {% block body %}
 <header>
-    <nav class="sidenav-trigger">
-        <div class="nav-wrapper">
+    <div class="navbar-fixed">
+        <nav class="sidenav-trigger">
+            <div class="nav-wrapper">
 
-            <a href="{{url_for('index', username = session['username'])}}" class="brand-logo"> <strong> <em>Digi Market Cap</em></strong></a>
-            <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <a href="{{url_for('index', username = session['username'])}}" class="brand-logo"> <strong> <em>Digi
+                            Market Cap</em></strong></a>
+                <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
-                <li><a href="{{url_for('coin_list', username = session['username'])}}"><i class="tiny material-icons left">assessment</i>Coin List</a></li>
-                <li><a href="{{url_for('get_my_bagz', username = session['username'])}}"><i class="tiny material-icons left">account_balance_wallet</i>My Crypto</a></li>
-                <li><a href="{{url_for('create_a_bag', username = session['username'])}}"><i class="tiny material-icons left">control_point_duplicate</i>Add a Crypto</a></li>
-                <li><a href="{{url_for('logout', username = session['username'])}}"><i class="tiny material-icons left">exit_to_app</i>Logout</a></li>
-            </ul>
-        </div>
-    </nav>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="{{url_for('coin_list', username = session['username'])}}"><i
+                                class="tiny material-icons left">assessment</i>Coin List</a></li>
+                    <li><a href="{{url_for('get_my_bagz', username = session['username'])}}"><i
+                                class="tiny material-icons left">account_balance_wallet</i>My Crypto</a></li>
+                    <li><a href="{{url_for('create_a_bag', username = session['username'])}}"><i
+                                class="tiny material-icons left">control_point_duplicate</i>Add a Crypto</a></li>
+                    <li><a href="{{url_for('logout', username = session['username'])}}"><i
+                                class="tiny material-icons left">exit_to_app</i>Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
     <ul class="sidenav" id="mobile-menu">
-        <li><a href="{{url_for('coin_list', username = session['username'])}}"><i class="small material-icons right">assessment</i>Coin List</a></li>
-        <li><a href="{{url_for('get_my_bagz', username = session['username'])}}"><i class="small material-icons right">account_balance_wallet</i>My Crypto</a></li>
-        <li><a href="{{url_for('create_a_bag', username = session['username'])}}"><i class="small material-icons right">control_point_duplicate</i>Add a Crypto</a></li>
-        <li><a href="{{url_for('logout', username = session['username'])}}"><i class="small material-icons right">exit_to_app</i>Logout</a></li>
-        <li><a href="{{url_for('index')}}"><i class="small material-icons right">close</i>Close Menu</a></li>
+        <li><a href="{{url_for('coin_list', username = session['username'])}}"><i
+                    class="small material-icons right">assessment</i>Coin List</a></li>
+        <li><a href="{{url_for('get_my_bagz', username = session['username'])}}"><i
+                    class="small material-icons right">account_balance_wallet</i>My Crypto</a></li>
+        <li><a href="{{url_for('create_a_bag', username = session['username'])}}"><i
+                    class="small material-icons right">control_point_duplicate</i>Add a Crypto</a></li>
+        <li><a href="{{url_for('logout', username = session['username'])}}"><i
+                    class="small material-icons right">exit_to_app</i>Logout</a></li>
     </ul>
 </header>
 

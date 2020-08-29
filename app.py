@@ -13,6 +13,8 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
+
+
 """1st Api call to CMC for list of crypto"""
 r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=200&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
@@ -76,7 +78,7 @@ def register():
 def coin_list(username):
   if 'username' in session:
     return render_template("coin_list.html", data=data, global_data=global_data)
-  c
+  
 
 """create a holding of crypto"""
 @app.route('/add_crypto/<username>')
