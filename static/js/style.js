@@ -64,7 +64,7 @@ $(document).ready(function () {
         series: myValues 
       };
       
-    var sum = function(a, b) { return a + b };
+    var sum = function(a, b) { return a + b; };
       var Chartist = new Chartist.Pie('.ct-chart', data, {
         labelInterpolationFnc: function(value, idx) {
           let percentage = Math.round(value / data.series.reduce(sum) * 100) + '%';
