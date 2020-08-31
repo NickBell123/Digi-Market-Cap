@@ -155,6 +155,18 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 * PEP8 for Python
 
+* JSHint was used for checking for errors in my javascript file.
+
+### Manual Testing
+
+- From the sign in and register page try to submit without any input in username. Alret field required working.
+- From the sign in and register page try to submit without any input in password. Alret field required working.
+- For the forms I tested to ensure all input fields only excepted vaild inputs only. 
+- Some Crypto prices are below 1 cent and so checking for price using Jinja if statements to display the correct format is displyed.
+- Tested the back and forward buttons of the browser to check it does not break the site.
+- Tested to check that once logged out and then using back in the browser the results in error page display.
+- Tested manual entering of URLs without username to check error page display. All working.
+
 #### Issues
 
 The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incrementing values in an array. There were some fiddly formatting and style issues as well. 
