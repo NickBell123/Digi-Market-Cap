@@ -1,3 +1,6 @@
+/*jshint esversion: 6 */
+/*globals $:false */
+
 $(window).on("load", function(){
     $(".preloader-wrapper").toggleClass("hidden");
 });
@@ -16,7 +19,7 @@ $(document).ready(function () {
         "columnDefs": [{
             "targets":[0],
             "orderable": false
-        }]           
+        }]         
     });
 
     $('#mybagTable').DataTable({
@@ -31,43 +34,38 @@ $(document).ready(function () {
     // favourites functionality
     $('.fav_star').click(function(){
         $(this).toggleClass("yellow");
-        $(this).closest('tr').toggleClass('favourite')
-    })
+        $(this).closest('tr').toggleClass('favourite');
+    });
 
     $('#is_favourite').click(function(){
         $('tr').each(function(){
             if ($(this).hasClass('favourite') == false ){
-                $(this).toggleClass('hidden')
+                $(this).toggleClass('hidden');
             }
-        })    
+        });    
         
-    })
-
-   
-    console.log($('tr'))
-    
+    });    
     
     // Chartist.js function
-    let myValues = []
+    var myValues = [];
     
-    myVal = $('.pieChart_value')
-    for (vals of myVal)
-        myValues.push(parseFloat(vals.textContent.slice(1)))
+    var myVal = $('.pieChart_value');
+    for (var vals of myVal)
+        myValues.push(parseFloat(vals.textContent.slice(1)));
 
 
-    let myLabels = []
+    var myLabels = [];
     
-    myLab = $('.assetName')
-    for (lab of myLab)
-        myLabels.push(lab.textContent)
+    var myLab = $('.assetName');
+    for (var lab of myLab)
+        myLabels.push(lab.textContent);
 
     var data = {
         series: myValues 
-      }
+      };
       
-      var sum = function(a, b) { return a + b };
-      
-      new Chartist.Pie('.ct-chart', data, {
+    var sum = function(a, b) { return a + b };
+      var Chartist = new Chartist.Pie('.ct-chart', data, {
         labelInterpolationFnc: function(value, idx) {
           let percentage = Math.round(value / data.series.reduce(sum) * 100) + '%';
           return myLabels[idx] +' '+ percentage;
