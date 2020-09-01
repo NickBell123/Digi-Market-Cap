@@ -78,7 +78,7 @@ def register():
 def coin_list(username):
   if 'username' in session:
     return render_template("coin_list.html", data=data, global_data=global_data)
-  
+  return render_template("error_page.html")
 
 """create a holding of crypto"""
 @app.route('/add_crypto/<username>')
@@ -194,12 +194,12 @@ def coin_error():
   return render_template('error_page.html')
 
 
-@app.route('/get_my_bagz/')
+@app.route('/my_crypto/')
 def get_my_error():
   return render_template('error_page.html')
 
 
-@app.route('/create_a_bag/')
+@app.route('/add_crypto/')
 def create_error():
   return render_template('error_page.html')
 

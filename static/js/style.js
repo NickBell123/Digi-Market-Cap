@@ -1,6 +1,3 @@
-/*jshint esversion: 6 */
-/*globals $:false */
-
 $(window).on("load", function(){
     $(".preloader-wrapper").toggleClass("hidden");
 });
@@ -19,7 +16,7 @@ $(document).ready(function () {
         "columnDefs": [{
             "targets":[0],
             "orderable": false
-        }]         
+        }]           
     });
 
     $('#mybagTable').DataTable({
@@ -34,38 +31,40 @@ $(document).ready(function () {
     // favourites functionality
     $('.fav_star').click(function(){
         $(this).toggleClass("yellow");
-        $(this).closest('tr').toggleClass('favourite');
-    });
+        $(this).closest('tr').toggleClass('favourite')
+    })
 
     $('#is_favourite').click(function(){
         $('tr').each(function(){
             if ($(this).hasClass('favourite') == false ){
-                $(this).toggleClass('hidden');
+                $(this).toggleClass('hidden')
             }
-        });    
+        })    
         
-    });    
+    })   
     
     // Chartist.js function
-    var myValues = [];
+    let myValues = []
     
-    var myVal = $('.pieChart_value');
-    for (var vals of myVal)
-        myValues.push(parseFloat(vals.textContent.slice(1)));
+    myVal = $('.pieChart_value')
+    for (vals of myVal)
+        myValues.push(parseFloat(vals.textContent.slice(1)))
 
 
-    var myLabels = [];
+    let myLabels = []
     
-    var myLab = $('.assetName');
-    for (var lab of myLab)
-        myLabels.push(lab.textContent);
+    myLab = $('.assetName')
+    for (lab of myLab)
+        myLabels.push(lab.textContent)
 
     var data = {
         series: myValues 
-      };
+      }
+      
+      var sum = function(a, b) { return a + b };
       
     var sum = function(a, b) { return a + b; };
-      var Chartist = new Chartist.Pie('.ct-chart', data, {
+      var chart = new Chartist.Pie('.ct-chart', data, {
         labelInterpolationFnc: function(value, idx) {
           let percentage = Math.round(value / data.series.reduce(sum) * 100) + '%';
           return myLabels[idx] +' '+ percentage;

@@ -16,20 +16,6 @@
 </head>
 
 <body>
-    {% block content %}
-    {% endblock %}
-
-    <footer class="page-footer">
-        <div class="footer-copyright">
-            <div class="disclaimer">
-                <i class="material-icons prefix">warning</i>
-                <strong>This site is for educational perposes only!</strong>
-                <span>
-                    © 2020 Copyright
-                </span>
-            </div>
-        </div>
-    </footer>
     <!-- Preloader Div -->
     <div class="preloader-wrapper big active">
         <div class="spinner-layer spinner-blue-only">
@@ -45,6 +31,21 @@
         </div>
     </div>
     <!-- /Preloader -->
+    {% block content %}
+    {% endblock %}
+    <div id="footer_wrapper" class="col s12">
+        <footer class="page-footer">
+            <div class="footer-copyright">
+                <div class="disclaimer">
+                    <i class="material-icons prefix">warning</i>
+                    <strong>This site is for educational perposes only!</strong>
+                    <span>
+                        © 2020 Copyright
+                    </span>
+                </div>
+            </div>
+        </footer>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous">
