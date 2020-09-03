@@ -158,7 +158,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 * JSHint was used for checking for errors in my javascript file.
 
 ### Manual Testing
-#### All testing was done on multipul browsers and devices.
+#### All testing was done on multipule browsers and devices.
 
 #### Register Page
 
@@ -200,7 +200,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 - Test that My Crypto link points to My Cypto page.
 
-- Test that Add Crypto link points to Ad Cypto page.
+- Test that Add Crypto link points to Add Cypto page.
 
 - Test that Logout link points to Logout page.
 
@@ -219,7 +219,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 - Test that pie chart of holdings is displyed when data is available.
 
-- Test that all buttons point to correct pages
+- Test that all buttons (edit, update, delete) displayed in the table point to correct pages.
 
 - Test that all navbar elements show responsive pionter.
 
@@ -229,7 +229,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 - Test that My Crypto link points to My Cypto page.
 
-- Test that Add Crypto link points to Ad Cypto page.
+- Test that Add Crypto link points to Add Cypto page.
 
 - Test that Logout link points to Logout page.
 
@@ -255,36 +255,71 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 - Test that My Crypto link points to My Cypto page.
 
-- Test that Add Crypto link points to Ad Cypto page.
+- Test that Add Crypto link points to Add Cypto page.
 
 - Test that Logout link points to Logout page.
 
 - Test that back arrow does not break the site or cause an error.
 
 - Test that after logging out, pressing back arrow in the browser results in error page display.
- 
 
+#### Logout Link
 
+- Test page loads Sign In form.
 
+- Test link clears session.
 
+- Test that all navbar elements show responsive pionter.
 
-- From the sign in and register page try to submit without any input in username. Alert, field required working.
+- Test that Logo in nvabar loads coin list page.
 
-- From the sign in and register page try to submit without any input in password. Alert, field required working.
+- Test that coin list link in navbar loads coin list page.
 
-- Tested to check username must be unique.
+- Test that My Crypto link points to My Cypto page.
 
-- Tested to check that once signed up and wrong password does not work.
+- Test that Add Crypto link points to Add Cypto page.
 
-- 
+- Test that Logout link points to Logout page.
 
-- For the forms I tested to ensure all input fields excepted vaild inputs only. 
+- Test that back arrow does not break the site or cause an error.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display.
+
+#### Testing EDIT, UPDATE, DELETE Buttons in users My Crypto Page.
+
+- Test Edit buttons displays edit_crypto form.
+
+- Test Add buttons displays add_to form.
+
+- Test to ensure that Add button increments the current value in the mongo DB
+
+- Test Delete buttons points delete page.
+
+- Test all inputs only except availed inputs.
+
+- Test that connot submit form without required fields data available.
+
+- Test data is sent to MongoDb correctly and stored in correct data type.
+
+- Test that all navbar elements show responsive pionter.
+
+- Test that Logo in nvabar loads coin list page.
+
+- Test that coin list link in navbar loads coin list page.
+
+- Test that My Crypto link points to My Cypto page.
+
+- Test that Add Crypto link points to Add Cypto page.
+
+- Test that Logout link points to Logout page.
+
+- Test that back arrow does not break the site or cause an error.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display
+
+#### Additional Testing
 
 - Some Crypto prices are below 1 cent and so checking for price using Jinja and if statements to check the correct format is displyed. ie 0.001
-
-- Tested the back and forward buttons of the browser to check it does not break the site.
-
-- Tested to check that once logged out and then using back in the browser the results in error page display.
 
 - Tested manual entering of URLs without username to check error page display. All working.
 
@@ -293,10 +328,6 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 - Tested verious screens sizes
 
 - Tested app routes all work and have valid outcomes
-
-- Tested data was stored as a correct type in MongoDB
-
-- Tested all navbar elements point to correct route.
 
 
 
