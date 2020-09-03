@@ -145,7 +145,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 
 ## Testing
-* Crome dev tools was use throughout the project checking responsive handling and looging errors
+* Crome dev tools was use throughout the project for checking and handling errors
 
 * All HTML went through W3C HTML validator
 
@@ -158,14 +158,39 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 * JSHint was used for checking for errors in my javascript file.
 
 ### Manual Testing
+#### All testing was done on multipul browsers and devices.
 
 - From the sign in and register page try to submit without any input in username. Alert, field required working.
+
 - From the sign in and register page try to submit without any input in password. Alert, field required working.
+
+- Tested to check username must be unique.
+
+- Tested to check that once signed up and wrong password does not work.
+
+- 
+
 - For the forms I tested to ensure all input fields excepted vaild inputs only. 
-- Some Crypto prices are below 1 cent and so checking for price using Jinja and if statements to check the correct format is displyed.
+
+- Some Crypto prices are below 1 cent and so checking for price using Jinja and if statements to check the correct format is displyed. ie 0.001
+
 - Tested the back and forward buttons of the browser to check it does not break the site.
+
 - Tested to check that once logged out and then using back in the browser the results in error page display.
+
 - Tested manual entering of URLs without username to check error page display. All working.
+
+- Tested to make sure that site works on popular borwsers. Chrome Ex Safari Firefox and Brave.
+
+- Tested verious screens sizes
+
+- Tested app routes all work and have valid outcomes
+
+- Tested data was stored as a correct type in MongoDB
+
+- Tested all navbar elements point to correct route.
+
+
 
 #### Issues
 
