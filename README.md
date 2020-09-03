@@ -198,7 +198,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 - Test that coin list link in navbar loads coin list page.
 
-- Test that My Crypto link points to M Cypto page.
+- Test that My Crypto link points to My Cypto page.
 
 - Test that Add Crypto link points to Ad Cypto page.
 
@@ -213,19 +213,21 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 #### My Crypto page
 
-- Test page loads with or without data.
+- Test page loads holdings page without data.
+
+- Test page loads holdings table with data  available.
 
 - Test that pie chart of holdings is displyed when data is available.
 
 - Test that all buttons point to correct pages
 
-- Test that all nav element show responsive pionter.
+- Test that all navbar elements show responsive pionter.
 
 - Test that Logo in nvabar loads coin list page.
 
 - Test that coin list link in navbar loads coin list page.
 
-- Test that My Crypto link points to M Cypto page.
+- Test that My Crypto link points to My Cypto page.
 
 - Test that Add Crypto link points to Ad Cypto page.
 
@@ -234,6 +236,33 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 - Test that back arrow does not break the site or cause an error.
 
 - Test that after logging out, pressing back arrow in the browser results in error page display.
+
+#### Add Crypto Page
+
+- Test page loads Add Crypto form.
+
+- Test all inputs only except availed inputs.
+
+- Test that connot submit form without required fields data available.
+
+- Test data is sent to MongoDb correctly and stored in correct data type.
+
+- Test that all navbar elements show responsive pionter.
+
+- Test that Logo in nvabar loads coin list page.
+
+- Test that coin list link in navbar loads coin list page.
+
+- Test that My Crypto link points to My Cypto page.
+
+- Test that Add Crypto link points to Ad Cypto page.
+
+- Test that Logout link points to Logout page.
+
+- Test that back arrow does not break the site or cause an error.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display.
+ 
 
 
 
