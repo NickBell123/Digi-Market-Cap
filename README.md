@@ -160,6 +160,85 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 ### Manual Testing
 #### All testing was done on multipul browsers and devices.
 
+#### Register Page
+
+- Test that all input fields require input.
+
+- Test all input fields only accept vaild input.
+
+- Test error page loads on duplicate username input.
+
+- Test that after successful sign up directed to coin list page.
+
+- Test that back arrow does not break the site or cause an error.
+
+
+#### Sign In Page
+
+- Test that all input fields require input.
+
+- Test all input fields only accept vaild input.
+
+- Test error page loads on unknown username input.
+
+- Test error page loads on incorrect password input.
+
+- Test that after successful sign in directed to coin list page.
+
+- Test that back arrow does not break the site or cause an error.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display.
+
+
+#### Coin List page
+
+- Test that all nav element show responsive pionter.
+
+- Test that Logo in nvabar loads coin list page.
+
+- Test that coin list link in navbar loads coin list page.
+
+- Test that My Crypto link points to M Cypto page.
+
+- Test that Add Crypto link points to Ad Cypto page.
+
+- Test that Logout link points to Logout page.
+
+- Test that back arrow does not break the site or cause an error.
+
+- Test table sorting filter work.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display.
+
+
+#### My Crypto page
+
+- Test page loads with or without data.
+
+- Test that pie chart of holdings is displyed when data is available.
+
+- Test that all buttons point to correct pages
+
+- Test that all nav element show responsive pionter.
+
+- Test that Logo in nvabar loads coin list page.
+
+- Test that coin list link in navbar loads coin list page.
+
+- Test that My Crypto link points to M Cypto page.
+
+- Test that Add Crypto link points to Ad Cypto page.
+
+- Test that Logout link points to Logout page.
+
+- Test that back arrow does not break the site or cause an error.
+
+- Test that after logging out, pressing back arrow in the browser results in error page display.
+
+
+
+
+
 - From the sign in and register page try to submit without any input in username. Alert, field required working.
 
 - From the sign in and register page try to submit without any input in password. Alert, field required working.
