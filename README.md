@@ -171,7 +171,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 * JSHint was used for checking for errors in my javascript file.
 
-Futher testing can be found in the [testing.md]()
+Futher testing can be found in the [testing.md](https://github.com/NickBell123/Digi-Market-Cap/blob/master/TESTING.md)
 
 
 
