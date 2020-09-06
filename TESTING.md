@@ -172,7 +172,7 @@
 
 #### Lighthouse testing
 
-- first run [!] (/static/images/lighthouse_results01.png)
+- first run ![lighthouse image](/static/images/lighthouse_results01.png)
 
 
 #### Issues
