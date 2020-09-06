@@ -51,7 +51,7 @@
       {% else %}
       <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
       {% endif %}
-      {% if  coin.quote['USD']['percent_change_24h'] > 0 %}
+      {% if coin.quote['USD']['percent_change_24h'] and coin.quote['USD']['percent_change_24h'] > 0  %}
       <td class="profit-box center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
       {% else %}
       <td class="profit-box center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>

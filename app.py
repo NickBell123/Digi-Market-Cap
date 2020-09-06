@@ -19,6 +19,12 @@ mongo = PyMongo(app)
 r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=200&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
 data = results['data']
+
+for coin in data:
+  if coin['quote']['USD']['percent_change_24h'] == None:
+    coin['quote']['USD']['percent_change_24h'] = 0 
+  print(coin['quote']['USD']['percent_change_24h'])
+
 """2nd Api call to CMC for Market Stats of crypto"""
 r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
