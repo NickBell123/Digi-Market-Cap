@@ -23,7 +23,7 @@ data = results['data']
 for coin in data:
   if coin['quote']['USD']['percent_change_24h'] == None:
     coin['quote']['USD']['percent_change_24h'] = 0 
-  print(coin['quote']['USD']['percent_change_24h'])
+  
 
 """2nd Api call to CMC for Market Stats of crypto"""
 r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
@@ -194,7 +194,7 @@ def delete_bag(username, bag_id):
   return redirect(url_for('get_my_bagz', username = session['username']))
 
 
-"""EORROR routes for login page. When a user presses without logging in."""
+"""ERROR routes for login page. When a user presses without logging in."""
 @app.route('/coin_list/')
 def coin_error():
   return render_template('error_page.html')
