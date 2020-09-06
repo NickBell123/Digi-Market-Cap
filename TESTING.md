@@ -170,6 +170,9 @@
 
 - Tested app routes all work and have valid outcomes
 
+#### Lighthouse testing
+
+- first run [!] (/static/images/lighthouse_results01.png)
 
 
 #### Issues
@@ -177,3 +180,7 @@ During production I came accross this error `'TypeError: '>' not supported betwe
 To fix the problem I had to use an If statment that checked for a None return and converted it to 0. My thanks to Tony Ngene for his help with the issue.
 
 The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incrementing values in an array. There were some fiddly formatting and style issues as well. 
+
+#### PEP8 Online Check Results
+[!test_image](/static/images/pep8_image.png)
+
