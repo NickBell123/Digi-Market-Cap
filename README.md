@@ -6,9 +6,11 @@
 
 - [Description](#description)
 - [Deployment](#deployment)
+- [Live Site](https://digi-marketcap.herokuapp.com/)
 - [How To Use](#how-to-use)
-- [Tesing](#testing)
+- [Testing](#testing)
 - [Author Info](#author-info)
+
 
 ---
 
@@ -76,7 +78,7 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 ## Deployment
 
-I Deployed my app on Heroku and you can visit the live site https://digi-marketcap.herokuapp.com/[https://digi-marketcap.herokuapp.com/]
+I Deployed my app on Heroku and you can visit the live site https://digi-marketcap.herokuapp.com/
 
 ### This is how I did it 
 
