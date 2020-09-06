@@ -182,5 +182,6 @@ To fix the problem I had to use an If statment that checked for a None return an
 The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incrementing values in an array. There were some fiddly formatting and style issues as well. 
 
 #### PEP8 Online Check Results
-[!test_image](/static/images/pep8_image.png)
+![test_image](/static/images/pep8_image.png)
+
 
