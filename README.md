@@ -69,6 +69,8 @@ The site is far from finished but due to time constraints this is as far as I ca
 - MongoDb
 - JavaScript
 
+
+
 [Back To The Top](#read-me-template)
 
 ## Deployment
@@ -158,20 +160,6 @@ Step 10: You can also add to an exsisting position by clicking the add button. T
 Step 11: You can delete a position or holding buy clicking the delete button in the table row. This will remove the position form the My Crypto page
          and the data base.
 
-## Testing
-* Crome dev tools was use throughout the project for checking and handling errors
-
-* All HTML went through W3C HTML validator
-
-* CSS through W3C CSS validator
-
-* Lighthouse
-
-* PEP8 for Python
-
-* JSHint was used for checking for errors in my javascript file.
-
-Futher testing can be found in the [testing.md]()
 
 
 
