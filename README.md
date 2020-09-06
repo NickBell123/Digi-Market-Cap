@@ -71,11 +71,11 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#Digi-Market-Cap)
 
 ## Deployment
 
-I Deployed my app on Heroku 
+I Deployed my app on Heroku and you can visit the live site https://digi-marketcap.herokuapp.com/[https://digi-marketcap.herokuapp.com/]
 
 ### This is how I did it 
 
@@ -182,4 +182,4 @@ Futher testing can be found in the [testing.md](https://github.com/NickBell123/D
 - GitHub - https://github.com/NickBell123
  
 
-[Back To The Top](#read-me-template)
+[Back To The Top](#Digi-Market-Cap)
