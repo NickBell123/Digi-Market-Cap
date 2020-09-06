@@ -7,6 +7,7 @@
 - [Description](#description)
 - [Deployment](#deployment)
 - [How To Use](#how-to-use)
+- [Tesing](#testing)
 - [Author Info](#author-info)
 
 ---
