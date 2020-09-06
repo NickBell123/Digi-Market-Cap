@@ -107,17 +107,23 @@ I Deployed my app on Heroku
 
 ## How To Use
 
-Step 1: From the home page, click the link to create an account.
+Step 1: On first visit to site from the home page, click the link to create an account.
 
 ![Create Account Image](/static/images/create_account.png)
 
 Step 2: On the Register page fill out the fields. Enter an available username (one which is not already in use) and password and click the submit button.
 
+![Create Account form Image](/static/images/create_account_form.png)
+
 Step 3: On succesful loggin you will be directed to the coin list page. Here you can view stats on the top 200 cryptos by market cap.
+
+![Coin List Image](/static/images/coin_list.png)
 
 #### Create a position
 
 Step 4: To create a position/holding of crypto click the 'Add a Crypto' button in the top right of the navbar. 
+
+![Coin List Image](/static/images/create_position.png)
 
 Step 5: Select the crypto you wish to add to you holdings. Enter the amount you are 'holding' or have.
 
