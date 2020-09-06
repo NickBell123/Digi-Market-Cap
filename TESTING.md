@@ -1,16 +1,3 @@
-## Testing
-* Crome dev tools was use throughout the project for checking and handling errors
-
-* All HTML went through W3C HTML validator
-
-* CSS through W3C CSS validator
-
-* Lighthouse
-
-* PEP8 for Python
-
-* JSHint was used for checking for errors in my javascript file.
-
 ### Manual Testing
 #### All testing was done on multipule browsers and devices.
 
