@@ -137,6 +137,8 @@ Step 7: Enter the date of purchase (optional).
 Step 8: Click the submit button at the bottom of the form. You then automatically be redirect to the My Crypto page where you can view information
         on your new holding.
 
+![Positions Instructions](/static/images/positions_page_example.png)
+
 #### Editing a position
 
 Step 9: You can amend your holding at any time. If, for instance, you make an error duing input. Simply click the edit button in the corresponding
