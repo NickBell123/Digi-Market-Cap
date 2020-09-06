@@ -109,7 +109,7 @@ I Deployed my app on Heroku
 
 Step 1: From the home page, click the link to create an account.
 
-(/static/images/create_account.png)
+![Create Account Image](/static/images/create_account.png)
 
 Step 2: On the Register page fill out the fields. Enter an available username (one which is not already in use) and password and click the submit button.
 
