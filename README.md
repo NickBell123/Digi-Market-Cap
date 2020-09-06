@@ -1,6 +1,6 @@
 ﻿# Digi-Market-Cap
 
-![Project Image](/static/images/READMEimage.png)
+![Project Image](/static/images/multi_device_image.png)
 
 ### Table of Contents
 
