@@ -132,6 +132,8 @@ Step 6: Enter the <strong>price</strong> of the crypto at the <strong>at the tim
 
 Step 7: Enter the date of purchase (optional).
 
+![Positions Instructions](/static/images/position_instruction_image.png)
+
 Step 8: Click the submit button at the bottom of the form. You then automatically be redirect to the My Crypto page where you can view information
         on your new holding.
 
