@@ -170,6 +170,9 @@
 
 - Tested app routes all work and have valid outcomes
 
+#### Lighthouse testing
+
+- first run (lighthouse_results01)
 
 
 #### Issues
