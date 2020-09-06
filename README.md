@@ -143,11 +143,15 @@ Step 8: Click the submit button at the bottom of the form. You then automaticall
 
 Step 9: You can amend your holding at any time. If, for instance, you make an error duing input. Simply click the edit button in the corresponding
         row to make changes.
+        
+![Positions Instructions](/static/images/edit_page_example_image.png)
 
 #### Adding to a position
 
 Step 10: You can also add to an exsisting position by clicking the add button. This feature will add the input amount submitted in the form to 
         the exsisting amount of the crypto selected. An average price is then worked out by the input price and the exsisting price input.
+        
+ ![Positions Instructions](/static/images/add_to_holding_example_image.png)
 
 #### Deleting a holding
 
