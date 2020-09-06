@@ -173,5 +173,5 @@
 
 
 #### Issues
-
+During production I came accross this error <TypeError: '>' not supported between instances of 'NoneType' and 'int'>
 The biggest challenge for me in this build was learning the MongoDb syntax, in piticular pushing to an array and incrementing values in an array. There were some fiddly formatting and style issues as well. 
