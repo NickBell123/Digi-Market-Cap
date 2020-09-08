@@ -64,7 +64,7 @@
                                 class="material-icons">add</i></a>
                     </td>
                     </td>
-                    <td><a href="{{url_for('delete_bag',username = session['username'], bag_id=pos._id)}}"
+                    <td><a href="{{url_for('delete_bag', username = session['username'], bag_id=pos._id)}}"
                             class="btn-floating btn-small waves-effect waves-light red"><i
                                 class="material-icons">delete</i></a>
                     </td>
@@ -85,6 +85,6 @@
         <div class="ct-chart-two"></div>
     </div>
 </div>
-
+<!-- Chartist.js CDN for pie chart-->
 <script src="//cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
 {% endblock %}

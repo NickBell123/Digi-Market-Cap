@@ -8,36 +8,43 @@ from os import path
 if path.exists("env.py"):
     import env
 
-
 app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
-
 """1st Api call to CMC for list of crypto"""
+
 r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=200&CMC_PRO_API_KEY=' +
                  os.environ.get('API_KEY'))
 results = r.json()
 data = results['data']
 
+
+"""site broke due to None being return from the API call. Fix below"""
+
 for coin in data:
   if coin['quote']['USD']['percent_change_24h'] is None:
     coin['quote']['USD']['percent_change_24h'] = 0 
  
-
-
 """2nd Api call to CMC for Market Stats of crypto"""
+
 r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
 results = r.json()
 global_data = results['data']
+
 """Check if user is logged in already Y - coin list N -signin/up"""
+
+
 @app.route('/')
 def index():
   if 'username' in session:
     return redirect(url_for('coin_list', username = session['username']))
   return render_template("index.html")
+
 """Check Mongo for usernames & password match"""
+
+
 @app.route('/login', methods=["POST"])
 def login():
   user = mongo.db.user
@@ -49,7 +56,10 @@ def login():
       return redirect(url_for('index', user=user))
     
   return render_template('error_page.html')
+
 """logout route"""
+
+
 @app.route('/logout')
 def logout():
   if 'username' in session:
@@ -60,7 +70,10 @@ def logout():
       session.clear()
       return redirect(url_for('index'))
   return render_template('error_page.html')
+
 """Register page Check for available username. All usernames are unique"""
+
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
   if request.method == "POST":
@@ -73,20 +86,29 @@ def register():
       return redirect(url_for('index'))
     return render_template('error_page.html')
   return render_template("register.html")
+
 """Coin list page info via CMC API"""
+
+
 @app.route('/coin_list/<username>')
 def coin_list(username):
   if 'username' in session:
     return render_template("coin_list.html", data=data, global_data=global_data)
   return render_template("error_page.html")
+
 """create a holding of crypto"""
+
+
 @app.route('/add_crypto/<username>')
 def create_a_bag(username):
   if 'username' in session:
     _id = ObjectId()
     return render_template("create_a_bag.html", data=data, _id=_id, username = session['username'])
   return render_template('error_page.html')
+
 """push holding to db"""
+
+
 @app.route('/add_to_bagz/<username>', methods=["POST"])
 def add_to_bagz(username):
   if 'username' in session:
@@ -101,14 +123,19 @@ def add_to_bagz(username):
      }}})
     return redirect(url_for('get_my_bagz', username = session['username']))
   return render_template('error_page.html')
+
 """display/read users puchases/holdings"""
+
+
 @app.route('/my_crypto/<username>')
 def get_my_bagz(username):
   if 'username' in session:
     user = mongo.db.user.find_one({'name': session['username']})
     return render_template('my_crypto.html', positions=user['positions'], data=data, username = session['username'])
   return render_template('error_page.html')
+
 """update users puchases/holdings"""
+
 @app.route('/edit/<username>/<bag_id>')
 def edit_bag(username, bag_id):
   if 'username' in session:
@@ -121,6 +148,8 @@ def edit_bag(username, bag_id):
   return render_template('error_page.html')
   
 """update users puchases/holdings"""
+
+
 @app.route('/update_bag/<username>/<bag_id>', methods=["POST"])
 def update_bag(username, bag_id):
   user = mongo.db.user.update_one({'name': session['username'], 'positions._id': bag_id }, 
@@ -134,7 +163,10 @@ def update_bag(username, bag_id):
   }})
   
   return redirect(url_for('get_my_bagz', username = session['username']))
+
 """add to an exsisting purchase or holding"""
+
+
 @app.route('/add_to/<username>/<bag_id>')
 def add_to_bag(username, bag_id):
   user = mongo.db.user.find_one({'name': session['username']})
@@ -143,7 +175,10 @@ def add_to_bag(username, bag_id):
     if pos['_id'] == bag_id:
       bag = pos  
   return render_template('add_to.html', bag=bag, data=data, bag_id=bag_id)
+
 """adds to exsiting holding and creates an average buy price of the asset"""
+
+
 @app.route('/adding_to_bag/<username>/<bag_id>', methods=["POST"])
 def adding_to_bag(username, bag_id):
   user = mongo.db.user.find_one({'name': session['username']})
@@ -151,6 +186,7 @@ def adding_to_bag(username, bag_id):
   for pos in positions:
     if pos['_id'] == bag_id:
       bag = pos
+
   """create avg price and set""" 
   newPrice = float(request.form.get('price_paid'))
   oldPrice = float(bag['price_paid'])
@@ -167,7 +203,10 @@ def adding_to_bag(username, bag_id):
     'positions.$.amount': float(request.form.get('amount'))   
   }})  
   return redirect(url_for('get_my_bagz', username = session['username'], bag_id=bag_id))
+
 """delete users puchases/holdings"""
+
+
 @app.route('/delete/<username>/<bag_id>')
 def delete_bag(username, bag_id):
   user = mongo.db.user.update_one({'name': session['username']},
@@ -175,18 +214,26 @@ def delete_bag(username, bag_id):
   
   return redirect(url_for('get_my_bagz', username = session['username']))
 
-
+  
 """EORROR routes for login page. When a user presses without logging in."""
 """ERROR routes for login page. When a user presses without logging in."""
+
+
 @app.route('/coin_list/')
 def coin_error():
   return render_template('error_page.html')
+
+
 @app.route('/my_crypto/')
 def get_my_error():
   return render_template('error_page.html')
+
+
 @app.route('/add_crypto/')
 def create_error():
   return render_template('error_page.html')
+
+
 app.secret_key = os.environ.get('MYSECRETKEY')
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
