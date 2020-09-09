@@ -179,15 +179,26 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 Futher testing can be found in the [testing.md](https://github.com/NickBell123/Digi-Market-Cap/blob/master/TESTING.md)
 
 ## Credits
-#### Code
 
-- Materlize and Materlize icons were used thoroughout the project.
+- Materialize and Materialize icons were used thoroughout the project.
 
 - Background image came form a [pngitem.com](https://www.pngitem.com/)
 
+- Crypto information made available via [coinmarketcap-api](https://coinmarketcap.com/api/)
+
+### Resources & Guidence
+Stack Overflow 
+YouTube
+Code Institue Lessons
+
+
+Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence. 
+
+
+
 ## Author Info
 
-- GitHub - https://github.com/NickBell123
+- GitHub - [Nick Bell](https://github.com/NickBell123)
  
 
 [Back To The Top](#Digi-Market-Cap)
