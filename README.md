@@ -78,37 +78,38 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 ## Deployment
 
-I Deployed my app on Heroku and you can visit the live site https://digi-marketcap.herokuapp.com/
+I Deployed my app on Heroku and you can visit the live site: 
 
-### This is how I did it 
+[here]https://digi-marketcap.herokuapp.com/
 
-1. Set up a Heroku account
+The repository can be found on:
+ 
+[here](https://github.com/NickBell123/Digi-Market-Cap)
 
-2. Create an application, this must be a unique name  
+
+### How I did this
+
+1. Created a Heroku account
+
+2. Created a instance of the application with a unique name  
 
 3. Go to settings and set the VARS for IP, PORT and SECERT KEYS for the API and MONGODB
 
-4. Go back to the terminal and type - “Heroku login” this will take you to a webpage to login to your Heroku account 
+4. login in to Heroku login via terminal  
 
-5. Use “git init“ to initialise and new repository
+5. Used “git init“ to initialise and new repository
 
-6. type the command “pip3 freeze > requirements.txt” this will add a new2 file with all the packages to run your python app 
+6. Used command “pip3 freeze > requirements.txt” 
 
-7.  create a profile “echo web: python run.py > Profile” if your python file is called run.py
+7. Created a procfile 
 
-8. run the command “git remote add” and the app URL which can be found on the Heroku dashboard
+8. Ran the command “git remote add” and the app URL which can be found on the Heroku dashboard
 
-8. do a “git add .”
+9. Commited code 
 
-9. commit your code ‘git commit -m” your message here”’ 
+10. then ran “git push Heroku master”
 
-10. then run “git push Heroku master”
 
-11. This will then deploy your app
-
-## The repository can be found on:
- 
-[here](https://github.com/NickBell123/Digi-Market-Cap)
 
 ## How To Use
 
