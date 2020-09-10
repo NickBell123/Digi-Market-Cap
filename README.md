@@ -171,11 +171,12 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 * CSS through W3C CSS validator
 
-* Lighthouse
+* Lighthouse (Test showed that there is styling on pages being loaded that is not needed)
 
 * PEP8 for Python
 
 * JSHint was used for checking for errors in my javascript file.
+
 
 Futher testing can be found in the [testing.md](https://github.com/NickBell123/Digi-Market-Cap/blob/master/TESTING.md)
 
@@ -187,10 +188,17 @@ Futher testing can be found in the [testing.md](https://github.com/NickBell123/D
 
 - Crypto information made available via [coinmarketcap-api](https://coinmarketcap.com/api/)
 
+- Table sorting by [datatables cdn](datatables.net)
+
+- Pie chat Js from [Chartist.js](https://gionkunz.github.io/chartist-js/examples.html)
+
 ### Resources & Guidence
-Stack Overflow 
+MongoDb Documentation
+Stack Overflow
+Slack
 YouTube
 Code Institue Lessons
+Chartist.js documentation
 
 
 Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence. 
