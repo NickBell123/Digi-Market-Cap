@@ -60,7 +60,8 @@ The site is far from finished but due to time constraints this is as far as I ca
 * Additional currency support
 * Historical price info to support more charts
 * Better UX desgin
-* Favorite Tab
+* Finish favorite tab feature
+* Darkmode
 
 ### Technologies
 
