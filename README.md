@@ -78,7 +78,7 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 I Deployed my app on Heroku and you can visit the live site: 
 
-[here]https://digi-marketcap.herokuapp.com/
+[here](https://digi-marketcap.herokuapp.com/)
 
 The repository can be found on:
  
