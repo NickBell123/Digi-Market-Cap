@@ -196,7 +196,8 @@ Futher testing can be found in the [testing.md](https://github.com/NickBell123/D
 - Code Institue Lessons
 - Chartist.js documentation
 
-Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence. 
+Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence.
+
 
 ## Author Info
 
