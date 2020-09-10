@@ -11,13 +11,10 @@
 - [Testing](#testing)
 - [Author Info](#author-info)
 
-
----
-
 ## Description
 The purpose of this project was to create an app with full CRUD capability. I choose the subject of Crypto currencies as I find the topic and tech very interesting.
 
-This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed intuitive functionality and for a clean and easy user expirience. However due to the complex nature of finance, money as well as on-top crypto, I feel that the site could improve on UX. 
+This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed intuitive functionality and for a clean and easy user expirience. However due to the complex nature of finance, money as well as on-top crypto, I feel that the site could improve on UX. The Favourite feature is not fully functional yet as the buttons have not been wired up to the data base. 
 
 Please note for now the only currency available on the site is USD.
 
@@ -177,7 +174,6 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 * JSHint was used for checking for errors in my javascript file.
 
-
 Futher testing can be found in the [testing.md](https://github.com/NickBell123/Digi-Market-Cap/blob/master/TESTING.md)
 
 ## Credits
@@ -193,17 +189,14 @@ Futher testing can be found in the [testing.md](https://github.com/NickBell123/D
 - Pie chat Js from [Chartist.js](https://gionkunz.github.io/chartist-js/examples.html)
 
 ### Resources & Guidence
-MongoDb Documentation
-Stack Overflow
-Slack
-YouTube
-Code Institue Lessons
-Chartist.js documentation
-
+- MongoDb Documentation
+- Stack Overflow
+- Slack
+- YouTube
+- Code Institue Lessons
+- Chartist.js documentation
 
 Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence. 
-
-
 
 ## Author Info
 
