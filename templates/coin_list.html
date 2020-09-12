@@ -8,6 +8,7 @@
   <h4 class="center-align">Top 200 Cryptos By Market Cap</h4>
 </div>
 <hr>
+<!-- Market Cap	 Market Cap	Volume (24h)	Circulating Supply	Change (24h)	 -->
 <div class="global_stats">
   <span>Current Market Cap: {{"${:,.0f}".format(global_data['quote']['USD']['total_market_cap'])}}</span>
   <span>Bitcion Dominance: {{"{:.2f}%".format(global_data['btc_dominance'])}}</span>
@@ -30,34 +31,42 @@
       <th>24hr Change</th>
       <th>Circulating Supply</th>
       <th>Volume (24h)</th>
-      <!-- Market Cap	 Market Cap	Volume (24h)	Circulating Supply	Change (24h)	 -->
+      
     </tr>
   </thead>
   <tbody class="coin_body">
     {% for coin in data %}
     <tr>
-      <td>
+      <td> 
         <div class="center-align"><button class="switch btn-small fav_star">
             <input type="checkbox" checked="checked" /><i class="material-icons">star_border</i>
           </button>
         </div>
       </td>
+      
       <td class="center-align">{{loop.index}}</td>
+     
       <td><strong>{{coin.name}}</strong></td>
+     
       <td class="center-align">{{coin.symbol}}</td>
+     
       <td>{{"${:,.0f}".format(coin.quote['USD']['market_cap'])}}</td>
+     
       {% if coin.quote['USD']['price'] < 1 %}
       <td>{{"${:.5f}".format(coin.quote['USD']['price'])}}</td>
       {% else %}
       <td>{{"${:.2f}".format(coin.quote['USD']['price'])}}</td>
       {% endif %}
+     
       {% if coin.quote['USD']['percent_change_24h'] and coin.quote['USD']['percent_change_24h'] > 0  %}
       <td class="profit-box center-align green">+{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
       {% else %}
       <td class="profit-box center-align red">{{"{:.2f}%".format(coin.quote['USD']['percent_change_24h']) }}</td>
       {% endif %}
+      
       <td>{{"{:,.0f}".format(coin.circulating_supply)}}</td>
-      <td>{{"${:,.0f}".format(coin.quote['USD']['volume_24h']) }}</td>
+      
+      <td>{{"${:,.0f}".format(coin.quote['USD']['volume_24h'])}}</td>
     </tr>
     {% endfor %}
   </tbody>

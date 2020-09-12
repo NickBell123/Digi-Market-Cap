@@ -12,11 +12,11 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
-
+API_URL1 = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=200&CMC_PRO_API_KEY=' 
+API_URL2 = 'https://pro-api.coinmarketcap.com/v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY='
 """1st Api call to CMC for list of crypto"""
 
-r = requests.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?limit=200&CMC_PRO_API_KEY=' +
-                 os.environ.get('API_KEY'))
+r = requests.get(API_URL1 + os.environ.get('API_KEY'))
 results = r.json()
 data = results['data']
 
@@ -29,7 +29,7 @@ for coin in data:
  
 """2nd Api call to CMC for Market Stats of crypto"""
 
-r = requests.get('https://pro-api.coinmarketcap.com//v1/global-metrics/quotes/latest?&CMC_PRO_API_KEY=' + os.environ.get('API_KEY'))
+r = requests.get(API_URL2 + os.environ.get('API_KEY'))
 results = r.json()
 global_data = results['data']
 
@@ -131,7 +131,7 @@ def add_to_bagz(username):
 def get_my_bagz(username):
   if 'username' in session:
     user = mongo.db.user.find_one({'name': session['username']})
-    return render_template('my_crypto.html', positions=user['positions'], data=data, username = session['username'])
+    return render_template('my_crypto.html', positions=user['positions'], data=data, username=session['username'])
   return render_template('error_page.html')
 
 """update users puchases/holdings"""
@@ -214,7 +214,12 @@ def delete_bag(username, bag_id):
   
   return redirect(url_for('get_my_bagz', username = session['username']))
 
-  
+@app.route('/add_to_favourite/<username>/<coin>')
+def add_to_favourite(username, coin):
+  user = mongo.db.user.update_one({'name': session['username']},
+  {'$push': {'favourites': coin}})
+  return redirect(url_for('coin_list', username=session['username']))
+
 """EORROR routes for login page. When a user presses without logging in."""
 """ERROR routes for login page. When a user presses without logging in."""
 
@@ -238,4 +243,4 @@ app.secret_key = os.environ.get('MYSECRETKEY')
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'), 
         port=(os.environ.get('PORT')),
-        debug=True)
+        debug=False)
