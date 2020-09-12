@@ -11,13 +11,10 @@
 - [Testing](#testing)
 - [Author Info](#author-info)
 
-
----
-
 ## Description
 The purpose of this project was to create an app with full CRUD capability. I choose the subject of Crypto currencies as I find the topic and tech very interesting.
 
-This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed intuitive functionality and for a clean and easy user expirience. However due to the complex nature of finance, money as well as on-top crypto, I feel that the site could improve on UX. 
+This site is intended to allow users to follow the top 200 Crypto's by market cap. In addition users can track their purchases of crypto by creating a position, updating, editing and deleting. The design, layout and typography are designed intuitive functionality and for a clean and easy user expirience. However due to the complex nature of finance, money as well as on-top crypto, I feel that the site could improve on UX. The Favourite feature is not fully functional yet as the buttons have not been wired up to the data base. 
 
 Please note for now the only currency available on the site is USD.
 
@@ -63,7 +60,8 @@ The site is far from finished but due to time constraints this is as far as I ca
 * Additional currency support
 * Historical price info to support more charts
 * Better UX desgin
-* Favorite Tab
+* Finish favorite tab feature
+* Darkmode
 
 ### Technologies
 
@@ -78,37 +76,38 @@ The site is far from finished but due to time constraints this is as far as I ca
 
 ## Deployment
 
-I Deployed my app on Heroku and you can visit the live site https://digi-marketcap.herokuapp.com/
+I Deployed my app on Heroku and you can visit the live site: 
 
-### This is how I did it 
+[here](https://digi-marketcap.herokuapp.com/)
 
-1. Set up a Heroku account
+The repository can be found on:
+ 
+[here](https://github.com/NickBell123/Digi-Market-Cap)
 
-2. Create an application, this must be a unique name  
+
+### How I did this
+
+1. Created a Heroku account
+
+2. Created a instance of the application with a unique name  
 
 3. Go to settings and set the VARS for IP, PORT and SECERT KEYS for the API and MONGODB
 
-4. Go back to the terminal and type - “Heroku login” this will take you to a webpage to login to your Heroku account 
+4. login in to Heroku login via terminal  
 
-5. Use “git init“ to initialise and new repository
+5. Used “git init“ to initialise and new repository
 
-6. type the command “pip3 freeze > requirements.txt” this will add a new2 file with all the packages to run your python app 
+6. Used command “pip3 freeze > requirements.txt” 
 
-7.  create a profile “echo web: python run.py > Profile” if your python file is called run.py
+7. Created a procfile 
 
-8. run the command “git remote add” and the app URL which can be found on the Heroku dashboard
+8. Ran the command “git remote add” and the app URL which can be found on the Heroku dashboard
 
-8. do a “git add .”
+9. Commited code 
 
-9. commit your code ‘git commit -m” your message here”’ 
+10. then ran “git push Heroku master”
 
-10. then run “git push Heroku master”
 
-11. This will then deploy your app
-
-## The repository can be found on:
- 
-[here](https://github.com/NickBell123/Digi-Market-Cap)
 
 ## How To Use
 
@@ -170,7 +169,7 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 
 * CSS through W3C CSS validator
 
-* Lighthouse
+* Lighthouse (Test showed that there is styling on pages being loaded that is not needed)
 
 * PEP8 for Python
 
@@ -179,15 +178,33 @@ Step 11: You can delete a position or holding buy clicking the delete button in 
 Futher testing can be found in the [testing.md](https://github.com/NickBell123/Digi-Market-Cap/blob/master/TESTING.md)
 
 ## Credits
-#### Code
 
-- Materlize and Materlize icons were used thoroughout the project.
+- Materialize and Materialize icons were used thoroughout the project.
 
 - Background image came form a [pngitem.com](https://www.pngitem.com/)
 
+- Crypto information made available via [coinmarketcap-api](https://coinmarketcap.com/api/)
+
+- Table sorting by [datatables cdn](datatables.net)
+
+- Pie chat Js from [Chartist.js](https://gionkunz.github.io/chartist-js/examples.html)
+
+### Resources & Guidence
+- MongoDb Documentation
+- Stack Overflow
+- Slack
+- YouTube
+- Code Institue Lessons
+- Chartist.js documentation
+
+### Acknowledgements
+I received inspiration for this project from [coingecko.com](https://www.coingecko.com/en) & [coinmarketcap.com](https://coinmarketcap.com/)
+Thanks to the Code Institue Slack team and other students for the help and input. Big thanks to Tony Ngene for continued support and guidence.
+
+
 ## Author Info
 
-- GitHub - https://github.com/NickBell123
+- GitHub - [Nick Bell](https://github.com/NickBell123)
  
 
 [Back To The Top](#Digi-Market-Cap)
